@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
+  // TODO: Update styling of nav bar to fit homepage theme
   return (
     <header className="header">
       <NavLink
