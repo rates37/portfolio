@@ -10,6 +10,7 @@ import TwinklingZoomingStarField from "../models/StarField";
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
+  const [currentStage, setCurrentStage] = useState(null);
 
   // Function to adjust the asteroid for ideal screen size
   const adjustAsteroid = () => {
@@ -58,9 +59,11 @@ const Home = () => {
           />
           <Spaceship 
             scale={shipScale}
-            position={shipPosition}
+            position={[0,0,0]}
             isRotating={isRotating}
             rotation={[-Math.PI / 2, Math.PI/2, Math.PI/2]}
+            orbitCenter={asteroidPosition}
+            orbitRadius={15}
           />
           <TwinklingZoomingStarField />
           <Asteroid
@@ -69,6 +72,7 @@ const Home = () => {
             rotation={asteroidRotation}
             isRotating={isRotating}
             setIsRotating={setIsRotating}
+            setCurrentStage={setCurrentStage}
           />
           {/* <OrbitControls /> */}
         </Suspense>
