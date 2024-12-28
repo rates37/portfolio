@@ -7,6 +7,7 @@ import Space from "../models/Space";
 import ZoomingStarField from "../models/StarField";
 import Spaceship from "../models/Spaceship";
 import TwinklingZoomingStarField from "../models/StarField";
+import HomeInfo from "../components/HomeInfo";
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
@@ -38,9 +39,9 @@ const Home = () => {
   return (
     <section className="w-full h-screen relative">
       {/* Popup: */}
-      {/* <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
-        POP
-      </div> */}
+      <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
+        {currentStage && <HomeInfo currentStage={currentStage} />}
+      </div>
 
       {/* 3D Screen */}
       <Canvas
@@ -57,11 +58,11 @@ const Home = () => {
             groundColor="#000000"
             intensity={0.5}
           />
-          <Spaceship 
+          <Spaceship
             scale={shipScale}
-            position={[0,0,0]}
+            position={[0, 0, 0]}
             isRotating={isRotating}
-            rotation={[-Math.PI / 2, Math.PI/2, Math.PI/2]}
+            rotation={[-Math.PI / 2, Math.PI / 2, Math.PI / 2]}
             orbitCenter={asteroidPosition}
             orbitRadius={15}
           />
