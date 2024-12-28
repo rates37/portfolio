@@ -13,7 +13,7 @@ import { a } from "@react-spring/three";
 
 import asteroid from "../assets/3d/asteroid.glb";
 
-const Asteroid = ({ isRotating, setIsRotating, ...props }) => {
+const Asteroid = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
   const { nodes, materials } = useGLTF(asteroid);
   const asteroidRef = useRef();
   const { gl, viewport } = useThree();
@@ -55,10 +55,10 @@ const Asteroid = ({ isRotating, setIsRotating, ...props }) => {
   const handleKeyDown = (e) => {
     if (e.key === "ArrowLeft") {
       if (!isRotating) setIsRotating(true);
-      asteroidRef.current.rotation.y += 0.01 * Math.PI;
+      asteroidRef.current.rotation.y -= 0.01 * Math.PI;
     } else if (e.key === "ArrowRight") {
       if (!isRotating) setIsRotating(true);
-      asteroidRef.current.rotation.y -= 0.01 * Math.PI;
+      asteroidRef.current.rotation.y += 0.01 * Math.PI;
     }
   };
 
@@ -99,17 +99,17 @@ const Asteroid = ({ isRotating, setIsRotating, ...props }) => {
     } else {
       const rotation = asteroidRef.current.rotation.y;
       const normalisedRotation = ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
-      // if (normalisedRotation >= 5.45 && normalisedRotation <= 5.85) {
-      //   setCurrentStage(4);
-      // } else if (normalisedRotation >= 0.85 && normalisedRotation <= 1.3) {
-      //   setCurrentStage(3);
-      // } else if (normalisedRotation >= 2.4 && normalisedRotation <= 2.6) {
-      //   setCurrentStage(2);
-      // } else if (normalisedRotation >= 4.25 && normalisedRotation <= 4.75) {
-      //   setCurrentStage(1);
-      // } else {
-      //   setCurrentStage(null);
-      // }
+      if (normalisedRotation >= 5.45 && normalisedRotation <= 5.85) {
+        setCurrentStage(4);
+      } else if (normalisedRotation >= 0.85 && normalisedRotation <= 1.3) {
+        setCurrentStage(3);
+      } else if (normalisedRotation >= 2.4 && normalisedRotation <= 2.6) {
+        setCurrentStage(2);
+      } else if (normalisedRotation >= 4.25 && normalisedRotation <= 4.75) {
+        setCurrentStage(1);
+      } else {
+        setCurrentStage(null);
+      }
     }
   })
 
