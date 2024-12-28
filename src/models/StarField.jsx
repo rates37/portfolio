@@ -227,7 +227,7 @@ const TwinklingStarField = () => {
 const TwinklingZoomingStarField = () => {
   const [stars, setStars] = useState(null);
   const starRef = useRef();
-
+  const speedScale = 0.2;
   useEffect(() => {
     const starCount = 10000;
 
@@ -247,9 +247,9 @@ const TwinklingZoomingStarField = () => {
 
       intensities[i] = Math.random() * 0.5 + 0.5;
 
-      velocities[i * 3] = Math.random() * 0.5 + 0.5;
-      velocities[i * 3 + 1] = Math.random() * 0.5 + 0.5;
-      velocities[i * 3 + 2] = Math.random() * 1 + 1;
+      velocities[i * 3] = speedScale * (Math.random() * 0.5 + 0.5);
+      velocities[i * 3 + 1] = speedScale * (Math.random() * 0.5 + 0.5);
+      velocities[i * 3 + 2] = speedScale * (Math.random() * 1 + 1);
     }
 
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));

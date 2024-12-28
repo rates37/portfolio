@@ -5,6 +5,7 @@ import Asteroid from "../models/Asteroid";
 import { OrbitControls } from "@react-three/drei";
 import Space from "../models/Space";
 import ZoomingStarField from "../models/StarField";
+import Spaceship from "../models/Spaceship";
 import TwinklingZoomingStarField from "../models/StarField";
 
 const Home = () => {
@@ -43,13 +44,14 @@ const Home = () => {
             groundColor="#000000"
             intensity={0.5}
           />
-
+          <Spaceship />
           <TwinklingZoomingStarField />
           <Asteroid
             position={asteroidPosition}
             scale={asteroidScale}
             rotation={asteroidRotation}
           />
+          <OrbitControls />
         </Suspense>
       </Canvas>
     </section>
