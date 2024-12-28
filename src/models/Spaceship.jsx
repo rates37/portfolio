@@ -15,14 +15,12 @@ import spaceship from '../assets/3d/low-poly_spaceship.glb'
 const Spaceship = (props) => {
     const { nodes, materials } = useGLTF(spaceship)
     return (
-      <group {...props} dispose={null}>
-        <mesh
+      <group  dispose={null}>
+        <mesh {...props}
           castShadow
           receiveShadow
           geometry={nodes.Cube001_Material_0.geometry}
           material={materials.Material}
-          rotation={[-Math.PI / 2, 0, Math.PI/2]}
-          scale={1}
         />
       </group>
     )

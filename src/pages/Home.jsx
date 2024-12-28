@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import Loader from "../components/Loader";
 import Asteroid from "../models/Asteroid";
@@ -9,6 +9,8 @@ import Spaceship from "../models/Spaceship";
 import TwinklingZoomingStarField from "../models/StarField";
 
 const Home = () => {
+  const [isRotating, setIsRotating] = useState(false);
+
   // Function to adjust the asteroid for ideal screen size
   const adjustAsteroid = () => {
     let screenScale;
@@ -24,6 +26,14 @@ const Home = () => {
   };
   const [asteroidScale, asteroidPosition, asteroidRotation] = adjustAsteroid();
 
+  const adjustShip = () => {
+    let screenScale = window.innerWidth < 768 ? [0.75, 0.75, 0.75] : [0.75, 0.75, 0.75];
+    let screenPosition = window.innerWidth < 768 ? [0, 5, -10] : [0, 8, -15];
+
+    return [screenScale, screenPosition];
+  };
+  const [shipScale, shipPosition] = adjustShip();
+
   return (
     <section className="w-full h-screen relative">
       {/* Popup: */}
@@ -33,7 +43,9 @@ const Home = () => {
 
       {/* 3D Screen */}
       <Canvas
-        className="w-full h-screen bg-black"
+        className={`w-full h-screen bg-black ${
+          isRotating ? "cursor-grabbing" : "cursor-grab"
+        }`}
         camera={{ near: 0.01, far: 1000 }}
       >
         <Suspense fallback={<Loader />}>
@@ -44,14 +56,21 @@ const Home = () => {
             groundColor="#000000"
             intensity={0.5}
           />
-          <Spaceship />
+          <Spaceship 
+            scale={shipScale}
+            position={shipPosition}
+            isRotating={isRotating}
+            rotation={[-Math.PI / 2, 0, Math.PI/2]}
+          />
           <TwinklingZoomingStarField />
           <Asteroid
             position={asteroidPosition}
             scale={asteroidScale}
             rotation={asteroidRotation}
+            isRotating={isRotating}
+            setIsRotating={setIsRotating}
           />
-          <OrbitControls />
+          {/* <OrbitControls /> */}
         </Suspense>
       </Canvas>
     </section>
