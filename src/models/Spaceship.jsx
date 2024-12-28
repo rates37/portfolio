@@ -6,24 +6,23 @@ Source: https://sketchfab.com/3d-models/spaceship-2b07b45c32df44fa8a9591c28d5f34
 Title: Spaceship
 */
 
-import React, { useRef } from 'react'
-import { useGLTF } from '@react-three/drei'
+import React, { useRef } from "react";
+import { useGLTF } from "@react-three/drei";
 
 // import spaceship from '../assets/3d/spaceship.glb'
-import spaceship from '../assets/3d/low-poly_spaceship.glb'
+import spaceship from "../assets/3d/low-poly_spaceship.glb";
 
-const Spaceship = (props) => {
-    const { nodes, materials } = useGLTF(spaceship)
-    return (
-      <group  dispose={null}>
-        <mesh {...props}
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube001_Material_0.geometry}
-          material={materials.Material}
-        />
-      </group>
-    )
-  }
+const Spaceship = ({isRotating, ...props}) => {
+  const {scene} = useGLTF(spaceship);
+  return (
+    <group dispose={null}>
+      <mesh
+        {...props}
+      >
+        <primitive object={scene} />
+      </mesh>
+    </group>
+  );
+};
 
 export default Spaceship;

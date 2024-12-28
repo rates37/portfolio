@@ -27,7 +27,7 @@ const Home = () => {
   const [asteroidScale, asteroidPosition, asteroidRotation] = adjustAsteroid();
 
   const adjustShip = () => {
-    let screenScale = window.innerWidth < 768 ? [0.75, 0.75, 0.75] : [0.75, 0.75, 0.75];
+    let screenScale = window.innerWidth < 768 ? 0.005 : 0.01;
     let screenPosition = window.innerWidth < 768 ? [0, 5, -10] : [0, 8, -15];
 
     return [screenScale, screenPosition];
@@ -60,7 +60,7 @@ const Home = () => {
             scale={shipScale}
             position={shipPosition}
             isRotating={isRotating}
-            rotation={[-Math.PI / 2, 0, Math.PI/2]}
+            rotation={[-Math.PI / 2, Math.PI/2, Math.PI/2]}
           />
           <TwinklingZoomingStarField />
           <Asteroid
