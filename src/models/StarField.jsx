@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
+import { EffectComposer, Bloom } from '@react-three/postprocessing'; // Import Bloom effect
 
 const ZoomingStarField = () => {
   const [stars, setStars] = useState(null);
@@ -127,4 +128,201 @@ const RotatingStarField = () => {
   return <primitive object={stars} />;
 };
 
-export default ZoomingStarField;
+
+const TwinklingStarField = () => {
+  const [stars, setStars] = useState(null);
+  const starRef = useRef();
+
+  useEffect(() => {
+    // Number of stars
+    const starCount = 10000;
+
+    // Create a geometry for stars
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(starCount * 3);
+    const intensities = new Float32Array(starCount); // To hold intensity for each star (for twinkling effect)
+
+    for (let i = 0; i < starCount; i++) {
+      // Random positions for each star in 3D space
+      const x = (Math.random() - 0.5) * 2000;
+      const y = (Math.random() - 0.5) * 2000;
+      const z = Math.random() * 5000 - 5000; // Start the stars far behind the camera
+
+      positions[i * 3] = x;
+      positions[i * 3 + 1] = y;
+      positions[i * 3 + 2] = z;
+
+      // Set initial intensities for the twinkling effect (random between 0.5 and 1)
+      intensities[i] = Math.random() * 0.5 + 0.5;
+    }
+
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('intensity', new THREE.BufferAttribute(intensities, 1)); // Add intensity attribute
+
+    // Create custom ShaderMaterial for glow effect
+    const material = new THREE.ShaderMaterial({
+      vertexShader: `
+        varying vec3 vPosition;
+        void main() {
+          vPosition = position;
+          gl_PointSize = 5.0;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `,
+      fragmentShader: `
+        varying vec3 vPosition;
+        uniform float intensity;
+        void main() {
+          float dist = length(vPosition);
+          float glow = exp(-dist * 0.01) * intensity; // Glow effect based on distance
+          gl_FragColor = vec4(glow, glow, glow, 1.0);
+        }
+      `,
+      uniforms: {
+        intensity: { value: 1.0 },
+      },
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending, // Blending mode to enhance glow effect
+    });
+
+    // Create the Points object to represent the stars
+    const points = new THREE.Points(geometry, material);
+    starRef.current = points;
+    setStars(points);
+  }, []);
+
+  useFrame(() => {
+    if (!stars) return;
+
+    const intensities = starRef.current.geometry.attributes.intensity.array;
+    const material = starRef.current.material;
+
+    // Loop through all stars to apply the twinkling effect
+    for (let i = 0; i < intensities.length; i++) {
+      // Update intensity (opacity) randomly to create twinkling effect
+      intensities[i] = Math.random() * 0.8 + 0.2; // Random opacity between 0.2 and 1
+    }
+
+    // Update the intensity in the geometry to reflect the changes
+    starRef.current.geometry.attributes.intensity.needsUpdate = true;
+
+    // Update the material's intensity to reflect the glow change
+    material.uniforms.intensity.value = Math.max(...intensities) * 2;
+  });
+
+  if (!stars) return null; // If stars are not created yet, render nothing
+
+  return (
+    <>
+      <primitive object={stars} />
+      <EffectComposer>
+        <Bloom luminanceThreshold={0.1} luminanceSmoothing={0.9} intensity={1.5} />
+      </EffectComposer>
+    </>
+  );
+};
+
+
+const TwinklingZoomingStarField = () => {
+  const [stars, setStars] = useState(null);
+  const starRef = useRef();
+
+  useEffect(() => {
+    const starCount = 10000;
+
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(starCount * 3);
+    const intensities = new Float32Array(starCount);
+    const velocities = new Float32Array(starCount * 3);
+
+    for (let i = 0; i < starCount; i++) {
+      const x = (Math.random() - 0.5) * 2000;
+      const y = (Math.random() - 0.5) * 2000;
+      const z = Math.random() * 5000 - 5000;
+
+      positions[i * 3] = x;
+      positions[i * 3 + 1] = y;
+      positions[i * 3 + 2] = z;
+
+      intensities[i] = Math.random() * 0.5 + 0.5;
+
+      velocities[i * 3] = Math.random() * 0.5 + 0.5;
+      velocities[i * 3 + 1] = Math.random() * 0.5 + 0.5;
+      velocities[i * 3 + 2] = Math.random() * 1 + 1;
+    }
+
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('intensity', new THREE.BufferAttribute(intensities, 1));
+    geometry.setAttribute('velocity', new THREE.BufferAttribute(velocities, 3));
+
+    const material = new THREE.ShaderMaterial({
+      vertexShader: `
+        varying vec3 vPosition;
+        void main() {
+          vPosition = position;
+          gl_PointSize = 5.0;
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        }
+      `,
+      fragmentShader: `
+        varying vec3 vPosition;
+        uniform float intensity;
+        void main() {
+          float dist = length(vPosition);
+          float glow = exp(-dist * 0.01) * intensity;
+          gl_FragColor = vec4(glow, glow, glow, 1.0);
+        }
+      `,
+      uniforms: {
+        intensity: { value: 1.0 },
+      },
+      transparent: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    });
+
+    const points = new THREE.Points(geometry, material);
+    starRef.current = points;
+    setStars(points);
+  }, []);
+
+  useFrame(() => {
+    if (!stars) return;
+
+    const positions = starRef.current.geometry.attributes.position.array;
+    const velocities = starRef.current.geometry.attributes.velocity.array;
+    const intensities = starRef.current.geometry.attributes.intensity.array;
+    const material = starRef.current.material;
+
+    for (let i = 0; i < positions.length; i += 3) {
+      positions[i + 2] += velocities[i + 2];
+
+      if (positions[i + 2] > 0) {
+        positions[i + 2] = Math.random() * -5000 - 1000;
+      }
+    }
+
+    for (let i = 0; i < intensities.length; i++) {
+        intensities[i] = Math.random() * 0.8 + 0.2;
+    }
+
+    starRef.current.geometry.attributes.position.needsUpdate = true;
+    starRef.current.geometry.attributes.intensity.needsUpdate = true;
+    material.uniforms.intensity.value = Math.max(...intensities) * 2;
+  });
+
+  if (!stars) return null;
+
+  return (
+    <>
+      <primitive object={stars} />
+      <EffectComposer>
+        <Bloom luminanceThreshold={0.1} luminanceSmoothing={0.9} intensity={1.5} />
+      </EffectComposer>
+    </>
+  );
+};
+
+
+export default TwinklingZoomingStarField;

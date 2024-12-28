@@ -5,6 +5,7 @@ import Asteroid from "../models/Asteroid";
 import { OrbitControls } from "@react-three/drei";
 import Space from "../models/Space";
 import ZoomingStarField from "../models/StarField";
+import TwinklingZoomingStarField from "../models/StarField";
 
 const Home = () => {
   // Function to adjust the asteroid for ideal screen size
@@ -20,7 +21,6 @@ const Home = () => {
     }
     return [screenScale, screenPosition, rotation];
   };
-
   const [asteroidScale, asteroidPosition, asteroidRotation] = adjustAsteroid();
 
   return (
@@ -33,15 +33,18 @@ const Home = () => {
       {/* 3D Screen */}
       <Canvas
         className="w-full h-screen bg-black"
-        camera={{ near: 0.1, far: 1000 }}
+        camera={{ near: 0.01, far: 1000 }}
       >
         <Suspense fallback={<Loader />}>
-          <directionalLight position={[-10,5,1]} intensity={2}/>
-          <ambientLight intensity={0.5}/>
-          <hemisphereLight skyColor="#b1e1ff" groundColor="#000000" intensity={0.5}/>
-          
-          <ZoomingStarField />
-          <OrbitControls />
+          <directionalLight position={[-10, 5, 1]} intensity={2} />
+          <ambientLight intensity={0.5} />
+          <hemisphereLight
+            skyColor="#b1e1ff"
+            groundColor="#000000"
+            intensity={0.5}
+          />
+
+          <TwinklingZoomingStarField />
           <Asteroid
             position={asteroidPosition}
             scale={asteroidScale}

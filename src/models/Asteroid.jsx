@@ -19,7 +19,7 @@ const Asteroid = (props) => {
   return (
     <a.group ref={asteroidRef} {...props} >
       <group rotation={[-Math.PI / 2, 0, 0]}>
-        <group position={[-0.003, 0.024, -6.331]} rotation={[0.238, -0.545, 0.562]} scale={7}>
+        <group position={[-0.003, 0.024, -6.331]} rotation={[0.238, -0.545, 0.562]} scale={8}>
           <mesh
             castShadow
             receiveShadow
