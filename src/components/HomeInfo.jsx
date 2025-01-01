@@ -19,7 +19,7 @@ const renderContent = {
       <br />{" "}
       <span className="text-base">
         An electronics and software <br />
-        engineer based in <span className="font-semibold">Melbourne</span>
+        engineer based in <span className="font-semibold">Melbourne📍</span>
       </span>
     </h1>
   ),
