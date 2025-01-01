@@ -270,7 +270,7 @@ const TwinklingZoomingStarField = () => {
         uniform float intensity;
         void main() {
           float dist = length(vPosition);
-          float glow = exp(-dist * 0.01) * intensity;
+          float glow = exp(-dist * 0.005) * intensity;
           gl_FragColor = vec4(glow, glow, glow, 1.0);
         }
       `,
