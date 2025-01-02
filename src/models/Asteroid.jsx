@@ -78,12 +78,6 @@ const Asteroid = ({ isRotating, setIsRotating, isMouseDown, setIsMouseDown, setC
     const scrollDirection = e.deltaY > 0 ? 1 : -1;
     rotSpeed.current += scrollDirection * 0.001 * Math.PI; // Increase rotation speed with scroll
 
-    // Update `isRotating` based on the accumulated speed
-    // if (Math.abs(rotSpeed.current) > 0.001) {
-    //   if (!isRotating) setIsRotating(true);
-    // } else {
-    //   if (isRotating) setIsRotating(false);
-    // }
   };
 
   useEffect(() => {
@@ -121,13 +115,15 @@ const Asteroid = ({ isRotating, setIsRotating, isMouseDown, setIsMouseDown, setC
       const rotation = asteroidRef.current.rotation.y;
       const normalisedRotation = ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
       // console.log(normalisedRotation)
-      if (normalisedRotation >= 5.45 && normalisedRotation <= 5.85) {
-        setCurrentStage(4);
-      } else if (normalisedRotation >= 0.85 && normalisedRotation <= 1.3) {
+      // if (normalisedRotation >= 5.45 && normalisedRotation <= 5.85) {
+      //   setCurrentStage(4);
+      // } else 
+      
+      if (normalisedRotation >= 0. && normalisedRotation <= 1.25) {
         setCurrentStage(3);
-      } else if (normalisedRotation >= 2.4 && normalisedRotation <= 2.6) {
+      } else if (normalisedRotation >= 2.25 && normalisedRotation <= 3.5) {
         setCurrentStage(2);
-      } else if (normalisedRotation >= 4.25 && normalisedRotation <= 4.75) {
+      } else if (normalisedRotation >= 4.25 && normalisedRotation <= 5.5) {
         setCurrentStage(1);
       } else {
         setCurrentStage(null);
