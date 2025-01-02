@@ -11,6 +11,7 @@ import HomeInfo from "../components/HomeInfo";
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
+  const [isMouseDown, setisMouseDown] = useState(false);
   const [currentStage, setCurrentStage] = useState(null);
 
   // Function to adjust the asteroid for ideal screen size
@@ -46,7 +47,7 @@ const Home = () => {
       {/* 3D Screen */}
       <Canvas
         className={`w-full h-screen bg-black ${
-          isRotating ? "cursor-grabbing" : "cursor-grab"
+          isMouseDown ? "cursor-grabbing" : "cursor-grab"
         }`}
         camera={{ near: 0.01, far: 1000 }}
       >
@@ -72,6 +73,8 @@ const Home = () => {
             rotation={asteroidRotation}
             isRotating={isRotating}
             setIsRotating={setIsRotating}
+            isMouseDown={isMouseDown}
+            setIsMouseDown={setisMouseDown}
             setCurrentStage={setCurrentStage}
           />
           {/* <OrbitControls /> */}

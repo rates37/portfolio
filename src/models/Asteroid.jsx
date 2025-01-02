@@ -6,14 +6,14 @@ Source: https://sketchfab.com/3d-models/space-exploration-wlp-series-8-91964c1ce
 Title: Space exploration [WLP series #8]
 */
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { a } from "@react-spring/three";
 
 import asteroid from "../assets/3d/asteroid.glb";
 
-const Asteroid = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
+const Asteroid = ({ isRotating, setIsRotating, isMouseDown, setIsMouseDown, setCurrentStage, ...props }) => {
   const { nodes, materials } = useGLTF(asteroid);
   const asteroidRef = useRef();
   const { gl, viewport } = useThree();
@@ -26,6 +26,7 @@ const Asteroid = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
     e.stopPropagation();
     e.preventDefault();
     setIsRotating(true);
+    setIsMouseDown(true)
 
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
     lastX.current = clientX;
@@ -35,13 +36,14 @@ const Asteroid = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
     e.stopPropagation();
     e.preventDefault();
     setIsRotating(false);
+    setIsMouseDown(false);
   };
 
   const handlePointerMove = (e) => {
     e.stopPropagation();
     e.preventDefault();
 
-    if (isRotating) {
+    if (isRotating && isMouseDown) {
 
       const clientX = e.touches ? e.touches[0].clientX : e.clientX;
       const delta = (clientX - lastX.current) / viewport.width;
@@ -68,11 +70,28 @@ const Asteroid = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
     }
   };
 
+  const handleWheel = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+
+    // Use e.deltaY to determine scroll direction
+    const scrollDirection = e.deltaY > 0 ? 1 : -1;
+    rotSpeed.current += scrollDirection * 0.001 * Math.PI; // Increase rotation speed with scroll
+
+    // Update `isRotating` based on the accumulated speed
+    // if (Math.abs(rotSpeed.current) > 0.001) {
+    //   if (!isRotating) setIsRotating(true);
+    // } else {
+    //   if (isRotating) setIsRotating(false);
+    // }
+  };
+
   useEffect(() => {
     const canvas = gl.domElement;
     canvas.addEventListener("pointerup", handlePointerUp);
     canvas.addEventListener("pointermove", handlePointerMove);
     canvas.addEventListener("pointerdown", handlePointerDown);
+    canvas.addEventListener("wheel", handleWheel);
 
     document.addEventListener('keydown', handleKeyDown);
     document.addEventListener('keyup', handleKeyUp);
@@ -81,6 +100,7 @@ const Asteroid = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
       canvas.removeEventListener("pointerup", handlePointerUp);
       canvas.removeEventListener("pointermove", handlePointerMove);
       canvas.removeEventListener("pointerdown", handlePointerDown);
+      canvas.removeEventListener("wheel", handleWheel);
       document.removeEventListener('keydown', handleKeyDown);
       document.removeEventListener('keyup', handleKeyUp);
     };
@@ -93,12 +113,14 @@ const Asteroid = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
 
       if (Math.abs(rotSpeed.current) < 0.001) {
         rotSpeed.current = 0;
+        // setIsRotating(false);
       }
 
       asteroidRef.current.rotation.y += rotSpeed.current;
-    } else {
+    } 
       const rotation = asteroidRef.current.rotation.y;
       const normalisedRotation = ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+      // console.log(normalisedRotation)
       if (normalisedRotation >= 5.45 && normalisedRotation <= 5.85) {
         setCurrentStage(4);
       } else if (normalisedRotation >= 0.85 && normalisedRotation <= 1.3) {
@@ -110,7 +132,6 @@ const Asteroid = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
       } else {
         setCurrentStage(null);
       }
-    }
   })
 
   return (
