@@ -27,7 +27,7 @@ const renderContent = {
     <InfoBox
       text="Diverse range of skills in electrical, computer systems, and software engineering."
       link="/about"
-      btnText="Learn More"
+      btnText="Learn More About Me"
     />
   ),
   3: (
@@ -37,13 +37,13 @@ const renderContent = {
       btnText="Visit my Portfolio"
     />
   ),
-  4: (
-    <InfoBox
-      text="Need a project done, or looking to chat?"
-      link="/contact"
-      btnText="Let's Talk!"
-    />
-  ),
+  // 4: (
+  //   <InfoBox
+  //     text="Need a project done, or looking to chat?"
+  //     link="/contact"
+  //     btnText="Let's Talk!"
+  //   />
+  // ),
 };
 
 const HomeInfo = ({ currentStage }) => {

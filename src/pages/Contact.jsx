@@ -1,7 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Contact = () => {
-  return <div className="text-white w-full h-screen relative bg-zinc-900">Contact</div>;
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [isLoading, setIsLoading] = useState(false);
+  const handleChange = () => {};
+
+  // return <div className="text-white w-full h-screen relative bg-zinc-900">Contact</div>;
+  return (
+    <section className="relative flex lg:flex-row flex-col max-container">
+      <div className="flex-1 min-w-[50%] flex flex-col">
+        <h1 className="head-text">Get in touch</h1>
+        <form className="w-full flex flex-col gap-7 mt-14">
+          <label className="text-black-500 font-semibold">
+            Name
+            <input
+              type="text"
+              name="name"
+              className="input"
+              placeholder="John Smith"
+              required
+              value={form.name}
+              onChange={handleChange}
+            ></input>
+          </label>
+
+          <label className="text-black-500 font-semibold">
+            Email
+            <input
+              type="text"
+              name="email"
+              className="input"
+              placeholder="johnsmith@gmail.com"
+              required
+              value={form.email}
+              onChange={handleChange}
+            ></input>
+          </label>
+
+          <label className="text-black-500 font-semibold">
+            Your Message
+            <textarea
+              name="message"
+              rows={4}
+              className="textarea"
+              placeholder="Let's talk!"
+              required
+              disabled={isLoading}
+              value={form.email}
+              onChange={handleChange}
+            ></textarea>
+          </label>
+
+          <button type="submit" className="btn">
+          {isLoading ? 'Submitting ...' : 'Send Message'}
+          </button>
+        </form>
+      </div>
+    </section>
+  );
 };
 
 export default Contact;

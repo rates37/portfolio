@@ -61,7 +61,6 @@ const Home = () => {
           <Spaceship
             scale={shipScale}
             position={[0, 0, 0]}
-            isRotating={isRotating}
             rotation={[-Math.PI / 2, Math.PI / 2, Math.PI / 2]}
             orbitCenter={asteroidPosition}
             orbitRadius={15}

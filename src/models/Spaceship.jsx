@@ -14,7 +14,7 @@ import spaceship from "../assets/3d/low-poly_spaceship.glb";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from 'three'
 
-const Spaceship = ({ isRotating, orbitCenter = [0, 0, 0], orbitRadius = 5, orbitSpeed = 1, ...props }) => {
+const Spaceship = ({ orbitCenter = [0, 0, 0], orbitRadius = 5, orbitSpeed = 1, ...props }) => {
   const { scene } = useGLTF(spaceship);
   const spaceShipRef = useRef();
 
