@@ -113,7 +113,7 @@ const Asteroid = ({ isRotating, setIsRotating, isMouseDown, setIsMouseDown, setC
 
       if (Math.abs(rotSpeed.current) < 0.001) {
         rotSpeed.current = 0;
-        // setIsRotating(false);
+        setIsRotating(false);
       }
 
       asteroidRef.current.rotation.y += rotSpeed.current;
