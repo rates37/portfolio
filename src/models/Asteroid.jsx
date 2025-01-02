@@ -80,12 +80,28 @@ const Asteroid = ({ isRotating, setIsRotating, isMouseDown, setIsMouseDown, setC
 
   };
 
+  const handleTouchStart = (e) => {
+    handlePointerDown(e);
+  };
+  
+  const handleTouchMove = (e) => {
+    handlePointerMove(e);
+  };
+  
+  const handleTouchEnd = (e) => {
+    handlePointerUp(e);
+  };
+
   useEffect(() => {
     const canvas = gl.domElement;
     canvas.addEventListener("pointerup", handlePointerUp);
     canvas.addEventListener("pointermove", handlePointerMove);
     canvas.addEventListener("pointerdown", handlePointerDown);
     canvas.addEventListener("wheel", handleWheel);
+    canvas.addEventListener("touchstart", handleTouchStart);
+    canvas.addEventListener("touchmove", handleTouchMove);
+    canvas.addEventListener("touchend", handleTouchEnd);
+    canvas.addEventListener("pointerleave", handlePointerUp)
 
     document.addEventListener('keydown', handleKeyDown);
     document.addEventListener('keyup', handleKeyUp);
@@ -95,6 +111,11 @@ const Asteroid = ({ isRotating, setIsRotating, isMouseDown, setIsMouseDown, setC
       canvas.removeEventListener("pointermove", handlePointerMove);
       canvas.removeEventListener("pointerdown", handlePointerDown);
       canvas.removeEventListener("wheel", handleWheel);
+      canvas.removeEventListener("touchstart", handleTouchStart);
+      canvas.removeEventListener("touchmove", handleTouchMove);
+      canvas.removeEventListener("touchend", handleTouchEnd);
+      canvas.removeEventListener("pointerleave", handlePointerUp)
+
       document.removeEventListener('keydown', handleKeyDown);
       document.removeEventListener('keyup', handleKeyUp);
     };
