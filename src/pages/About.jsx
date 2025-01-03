@@ -7,10 +7,10 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 
 const About = () => {
-  // return <div className="bg-zinc-900 text-white w-full h-screen relative">About</div>;
 
   return (
-    <section className="max-container">
+    <div className="bg-zinc-900 text-white w-full h-full relative">
+    <section className="max-container bg-zinc-900">
       <h1 className="head-text">
         Hello, I'm{" "}
         <span className="blue-gradient_text font-semibold drop-shadow">
@@ -18,7 +18,7 @@ const About = () => {
         </span>
       </h1>
 
-      <div className="mt-5 flex flex-col gap-3 text-slate-500">
+      <div className="mt-5 flex flex-col gap-3 text-slate-400">
         <p>
           A Software Engineer based in Melbourne, specialising in AI and Web
           Development.
@@ -30,8 +30,8 @@ const About = () => {
 
         <div className="mt-16 flex flex-wrap gap-12">
           {skills.map((skill, i) => (
-            <div className="block-container w-20 h-20" key={`skill-${i}`}>
-              <div className="btn-back rounded-xl" />
+            <div className="block-container w-20 h-20 " key={`skill-${i}`}>
+              <div className="btn-back rounded-xl bg-white" />
               <div className="btn-front rounded-xl flex justify-center items-center">
                 <img
                   src={skill.imageUrl}
@@ -47,7 +47,7 @@ const About = () => {
       <div className="py-16">
         <h3 className="subhead-text">My Experience</h3>
 
-        <div className="mt-5 flex flex-col gap-3 text-slate-500">
+        <div className="mt-5 flex flex-col gap-3 text-slate-400">
           <p>
             I've worked in various teams and environments, levelling up my
             skills and interacting with a diverse range of clients, customers,
@@ -61,6 +61,7 @@ const About = () => {
               <VerticalTimelineElement
                 key={`exp-${i}`}
                 date={experience.date}
+                dateClassName={"text-white"}
                 icon={
                   <div className="flex justify-center items-center w-full h-full">
                     <img
@@ -75,15 +76,16 @@ const About = () => {
                   borderStyle: "solid",
                   borderBottomColor: experience.iconBg,
                   boxShadow: "none",
+                  backgroundColor: "rgb(72 72 82 / var(--tw-bg-opacity, 1))"
                 }}
                 iconStyle={{ background: experience.iconBg }}
               >
                 <div>
-                  <h3 className="text-black text-xl font-poppins font-semibold">
+                  <h3 className="text-white text-xl font-poppins font-semibold">
                     {experience.title}
                   </h3>
                   <p
-                    className="text-black-500 font-medium font-base"
+                    className="text-slate-300 font-medium font-base"
                     style={{ margin: 0 }}
                   >
                     {experience.company_name}
@@ -92,7 +94,7 @@ const About = () => {
                 <ul className="my-5 list-disc ml-5 space-y-2">
                   {experience.points.map((point, idx) => (
                     <li
-                      className="text-black-500/50 font-normal pl-1 text-sm"
+                      className="text-slate-300 font-normal pl-1 text-sm"
                       key={`exp-point-${idx}`}
                       dangerouslySetInnerHTML={{ __html: point }} // not great thing to do, // todo: look for workaround
                     >
@@ -104,7 +106,7 @@ const About = () => {
           </VerticalTimeline>
         </div>
       </div>
-    </section>
+    </section></div>
   );
 };
 
