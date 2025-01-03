@@ -12,9 +12,7 @@ const Projects = () => {
           </span>
         </h1>
         <div className="mt-5 flex flex-col gap-3 text-slate-400">
-          <p>
-            Some description about projects
-          </p>
+          <p>Some description about projects</p>
         </div>
       </section>
     </div>

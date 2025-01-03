@@ -52,7 +52,7 @@ const Contact = () => {
           </label>
 
           <button type="submit" className="btn">
-          {isLoading ? 'Submitting ...' : 'Send Message'}
+            {isLoading ? "Submitting ..." : "Send Message"}
           </button>
         </form>
       </div>
