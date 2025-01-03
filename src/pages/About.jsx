@@ -5,6 +5,7 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
+import CallToAction from "../components/CallToAction";
 
 const About = () => {
 
@@ -106,6 +107,10 @@ const About = () => {
           </VerticalTimeline>
         </div>
       </div>
+
+      <hr className="border-slate-200" />
+
+      <CallToAction />
     </section></div>
   );
 };
