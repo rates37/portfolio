@@ -137,11 +137,6 @@ const Asteroid = ({
     const rotation = asteroidRef.current.rotation.y;
     const normalisedRotation =
       ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
-    // console.log(normalisedRotation)
-    // if (normalisedRotation >= 5.45 && normalisedRotation <= 5.85) {
-    //   setCurrentStage(4);
-    // } else
-
     if (normalisedRotation >= 0 && normalisedRotation <= 1.25) {
       setCurrentStage(3);
     } else if (normalisedRotation >= 2.25 && normalisedRotation <= 3.5) {
