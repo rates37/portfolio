@@ -13,7 +13,14 @@ import { a } from "@react-spring/three";
 
 import asteroid from "../assets/3d/asteroid.glb";
 
-const Asteroid = ({ isRotating, setIsRotating, isMouseDown, setIsMouseDown, setCurrentStage, ...props }) => {
+const Asteroid = ({
+  isRotating,
+  setIsRotating,
+  isMouseDown,
+  setIsMouseDown,
+  setCurrentStage,
+  ...props
+}) => {
   const { nodes, materials } = useGLTF(asteroid);
   const asteroidRef = useRef();
   const { gl, viewport } = useThree();
@@ -26,7 +33,7 @@ const Asteroid = ({ isRotating, setIsRotating, isMouseDown, setIsMouseDown, setC
     e.stopPropagation();
     e.preventDefault();
     setIsRotating(true);
-    setIsMouseDown(true)
+    setIsMouseDown(true);
 
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
     lastX.current = clientX;
@@ -44,23 +51,20 @@ const Asteroid = ({ isRotating, setIsRotating, isMouseDown, setIsMouseDown, setC
     e.preventDefault();
 
     if (isRotating && isMouseDown) {
-
       const clientX = e.touches ? e.touches[0].clientX : e.clientX;
       const delta = (clientX - lastX.current) / viewport.width;
       asteroidRef.current.rotation.y += delta * 0.01 * Math.PI;
       lastX.current = clientX;
-  
+
       rotSpeed.current = delta * 0.01 * Math.PI;
     }
   };
 
   const handleKeyDown = (e) => {
     if (e.key === "ArrowLeft") {
-      if (!isRotating) setIsRotating(true);
-      asteroidRef.current.rotation.y -= 0.01 * Math.PI;
+      rotSpeed.current -= 0.0125 / 3;
     } else if (e.key === "ArrowRight") {
-      if (!isRotating) setIsRotating(true);
-      asteroidRef.current.rotation.y += 0.01 * Math.PI;
+      rotSpeed.current += 0.0125 / 3;
     }
   };
 
@@ -77,17 +81,16 @@ const Asteroid = ({ isRotating, setIsRotating, isMouseDown, setIsMouseDown, setC
     // Use e.deltaY to determine scroll direction
     const scrollDirection = e.deltaY > 0 ? 1 : -1;
     rotSpeed.current += scrollDirection * 0.001 * Math.PI; // Increase rotation speed with scroll
-
   };
 
   const handleTouchStart = (e) => {
     handlePointerDown(e);
   };
-  
+
   const handleTouchMove = (e) => {
     handlePointerMove(e);
   };
-  
+
   const handleTouchEnd = (e) => {
     handlePointerUp(e);
   };
@@ -101,10 +104,10 @@ const Asteroid = ({ isRotating, setIsRotating, isMouseDown, setIsMouseDown, setC
     canvas.addEventListener("touchstart", handleTouchStart);
     canvas.addEventListener("touchmove", handleTouchMove);
     canvas.addEventListener("touchend", handleTouchEnd);
-    canvas.addEventListener("pointerleave", handlePointerUp)
+    canvas.addEventListener("pointerleave", handlePointerUp);
 
-    document.addEventListener('keydown', handleKeyDown);
-    document.addEventListener('keyup', handleKeyUp);
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("keyup", handleKeyUp);
 
     return () => {
       canvas.removeEventListener("pointerup", handlePointerUp);
@@ -114,10 +117,10 @@ const Asteroid = ({ isRotating, setIsRotating, isMouseDown, setIsMouseDown, setC
       canvas.removeEventListener("touchstart", handleTouchStart);
       canvas.removeEventListener("touchmove", handleTouchMove);
       canvas.removeEventListener("touchend", handleTouchEnd);
-      canvas.removeEventListener("pointerleave", handlePointerUp)
+      canvas.removeEventListener("pointerleave", handlePointerUp);
 
-      document.removeEventListener('keydown', handleKeyDown);
-      document.removeEventListener('keyup', handleKeyUp);
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("keyup", handleKeyUp);
     };
   }, [gl, handlePointerDown, handlePointerUp, handlePointerMove]);
 
@@ -132,24 +135,25 @@ const Asteroid = ({ isRotating, setIsRotating, isMouseDown, setIsMouseDown, setC
       }
 
       asteroidRef.current.rotation.y += rotSpeed.current;
-    } 
-      const rotation = asteroidRef.current.rotation.y;
-      const normalisedRotation = ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
-      // console.log(normalisedRotation)
-      // if (normalisedRotation >= 5.45 && normalisedRotation <= 5.85) {
-      //   setCurrentStage(4);
-      // } else 
-      
-      if (normalisedRotation >= 0. && normalisedRotation <= 1.25) {
-        setCurrentStage(3);
-      } else if (normalisedRotation >= 2.25 && normalisedRotation <= 3.5) {
-        setCurrentStage(2);
-      } else if (normalisedRotation >= 4.25 && normalisedRotation <= 5.5) {
-        setCurrentStage(1);
-      } else {
-        setCurrentStage(null);
-      }
-  })
+    }
+    const rotation = asteroidRef.current.rotation.y;
+    const normalisedRotation =
+      ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
+    // console.log(normalisedRotation)
+    // if (normalisedRotation >= 5.45 && normalisedRotation <= 5.85) {
+    //   setCurrentStage(4);
+    // } else
+
+    if (normalisedRotation >= 0 && normalisedRotation <= 1.25) {
+      setCurrentStage(3);
+    } else if (normalisedRotation >= 2.25 && normalisedRotation <= 3.5) {
+      setCurrentStage(2);
+    } else if (normalisedRotation >= 4.25 && normalisedRotation <= 5.5) {
+      setCurrentStage(1);
+    } else {
+      setCurrentStage(null);
+    }
+  });
 
   return (
     <a.group ref={asteroidRef} {...props}>
