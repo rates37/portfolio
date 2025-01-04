@@ -127,13 +127,11 @@ const Asteroid = ({
   useFrame(() => {
     if (!isRotating) {
       rotSpeed.current *= dampingFactor;
-      asteroidRef.current.rotation.y += rotSpeed.current;
 
       if (Math.abs(rotSpeed.current) < 0.001) {
         rotSpeed.current = 0;
         setIsRotating(false);
       }
-
       asteroidRef.current.rotation.y += rotSpeed.current;
     }
     const rotation = asteroidRef.current.rotation.y;
