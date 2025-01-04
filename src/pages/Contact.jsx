@@ -7,11 +7,11 @@ const Contact = () => {
 
   // return <div className="text-white w-full h-screen relative bg-zinc-900">Contact</div>;
   return (
-    <section className="relative flex lg:flex-row flex-col max-container">
+    <section className="relative flex lg:flex-row flex-col max-container h-screen">
       <div className="flex-1 min-w-[50%] flex flex-col">
-        <h1 className="head-text">Get in touch</h1>
+        <h1 className="head-text text-white">Get in touch</h1>
         <form className="w-full flex flex-col gap-7 mt-14">
-          <label className="text-black-500 font-semibold">
+          <label className="text-white font-semibold">
             Name
             <input
               type="text"
@@ -24,7 +24,7 @@ const Contact = () => {
             ></input>
           </label>
 
-          <label className="text-black-500 font-semibold">
+          <label className="text-white font-semibold">
             Email
             <input
               type="text"
@@ -37,7 +37,7 @@ const Contact = () => {
             ></input>
           </label>
 
-          <label className="text-black-500 font-semibold">
+          <label className="text-white font-semibold">
             Your Message
             <textarea
               name="message"
