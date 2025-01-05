@@ -1,4 +1,4 @@
-import { monash, mdn } from "../assets/images";
+import { byoe, monash, mdn, viziou } from "../assets/images";
 import {
   css,
   git,
@@ -156,13 +156,33 @@ export const experiences = [
 //   },
 // ];
 
-// export const projects = [
-//   {
-//     // iconUrl: thingdotsvg,
-//     theme: "btn-back-red",
-//     name: "Project name",
-//     description:
-//       "Developed something.",
-//     link: "https://github.com/",
-//   },
-// ];
+export const projects = [
+  {
+    iconUrl: byoe,
+    theme: "btn-back-green",
+    name: "Build Your Own Embedding",
+    description: "Designed and currently maintain a Python library to support the generation and analysis of synthetic neural responses, in order to assist with neuroscience research.",
+    link: "https://github.com/rates37/Build-Your-Own-Embedding",
+  },
+  {
+    iconUrl: viziou,
+    theme: "btn-back-red",
+    name: "Viziou",
+    description: "Created a .",
+    link: "https://github.com/",
+  },
+  {
+    iconUrl: mdn,
+    theme: "btn-back-red",
+    name: "Project name",
+    description: "Developed something.",
+    link: "https://github.com/",
+  },
+  {
+    iconUrl: github,
+    theme: "btn-back-green",
+    name: "Project name 2",
+    description: "Developed something else.",
+    link: "https://github.com/yoooooooo",
+  },
+];

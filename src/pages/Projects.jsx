@@ -5,9 +5,8 @@ import CallToAction from "../components/CallToAction";
 
 const Projects = () => {
   return (
-    <div className="bg-zinc-900 text-white w-full h-[100%] relative">
-      <section className="max-container bg-zinc-900 h-screen">
-        {/* weird css thing here with h-screen */}
+    <div className="bg-zinc-900 text-white w-full h-full relative">
+      <section className="max-container bg-zinc-900">
         <h1 className="head-text">
           My{" "}
           <span className="blue-gradient_text font-semibold drop-shadow">
@@ -28,13 +27,13 @@ const Projects = () => {
         <div className="flex flex-wrap my-20 gap-16">
           {projects.map((project) => (
             <div className="lg:w-[400px] w-full" key={project.name}>
-              <div className="block-container w-12 h-12">
+              <div className="block-container w-20 h-20">
                 <div className={`btn-back rounded-xl ${project.theme}`} />
                 <div className="btn-front rounded-xl flex justify-center items-center">
                   <img
                     src={project.iconUrl}
                     alt="Project Icon"
-                    className="w-1/2 h-1/2 object-contain"
+                    className="w-3/4 h-3/4 object-contain"
                   />
                 </div>
               </div>
