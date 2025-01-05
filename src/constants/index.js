@@ -161,8 +161,18 @@ export const projects = [
     iconUrl: byoe,
     theme: "btn-back-green",
     name: "Build Your Own Embedding",
-    description: "Designed and currently maintain a Python library to support the generation and analysis of synthetic neural responses, in order to assist with neuroscience research.",
-    link: "https://github.com/rates37/Build-Your-Own-Embedding",
+    description:
+      "Designed and currently maintain a Python library to support the generation and analysis of synthetic neural responses, in order to assist with neuroscience research.",
+    links: [
+      {
+        linkText: "GitHub",
+        link: "https://github.com/rates37/Build-Your-Own-Embedding",
+      },
+      {
+        linkText: "PyPI",
+        link: "https://pypi.org/project/BuildYourOwnEmbedding/",
+      },
+    ],
   },
   {
     iconUrl: viziou,
