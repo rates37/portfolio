@@ -182,7 +182,8 @@ export const projects = [
     iconUrl: viziou,
     theme: "btn-back-red",
     name: "Viziou",
-    description: "Created an online a tool for calculating and visualising the Intersection over Union (IoU) metric for 2D and 3D convex polytopes.",
+    description:
+      "Created an online a tool for calculating and visualising the Intersection over Union (IoU) metric for 2D and 3D convex polytopes.",
     links: [
       {
         linkText: "Live Site",
@@ -198,8 +199,18 @@ export const projects = [
     iconUrl: mdn,
     theme: "btn-back-blue",
     name: "uniplan",
-    description: "Developed something.",
-    link: "https://github.com/",
+    description:
+      "Developed a course planning tool for Monash University students in a period due to a period of downtime in the university's official course planning tool.",
+    links: [
+      {
+        linkText: "Live Site",
+        link: "https://rates37.github.io/uniplan/",
+      },
+      {
+        linkText: "GitHub",
+        link: "https://github.com/rates37/uniplan/",
+      },
+    ],
   },
   {
     iconUrl: github,
