@@ -1,4 +1,4 @@
-import { byoe, monash, mdn, viziou } from "../assets/images";
+import { byoe, monash, mdn, viziou, uniplan } from "../assets/images";
 import {
   css,
   git,
@@ -196,7 +196,7 @@ export const projects = [
     ],
   },
   {
-    iconUrl: mdn,
+    iconUrl: uniplan,
     theme: "btn-back-blue",
     name: "uniplan",
     description:
