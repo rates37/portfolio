@@ -6,8 +6,6 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import CallToAction from "../components/CallToAction";
-import { Canvas } from "@react-three/fiber";
-import TwinklingZoomingStarField from "../models/StarField";
 
 const About = () => {
   return (

@@ -3,7 +3,6 @@ import { Canvas } from "@react-three/fiber";
 import Loader from "../components/Loader";
 import Asteroid from "../models/Asteroid";
 import Spaceship from "../models/Spaceship";
-import TwinklingZoomingStarField from "../models/StarField";
 import HomeInfo from "../components/HomeInfo";
 
 const Home = () => {

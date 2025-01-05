@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import TwinklingZoomingStarField from "../models/StarField";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });

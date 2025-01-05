@@ -2,8 +2,6 @@ import React from "react";
 import { projects } from "../constants";
 import { Link } from "react-router-dom";
 import CallToAction from "../components/CallToAction";
-import { Canvas } from "@react-three/fiber";
-import TwinklingZoomingStarField from "../models/StarField";
 
 const Projects = () => {
   return (
