@@ -43,7 +43,7 @@ const Home = () => {
 
       {/* 3D Screen */}
       <Canvas
-        className={`w-full h-screen bg-zinc-900 ${
+        className={`w-full h-screen  ${
           isMouseDown ? "cursor-grabbing" : "cursor-grab"
         }`}
         camera={{ near: 0.01, far: 1000 }}
@@ -63,7 +63,6 @@ const Home = () => {
             orbitCenter={asteroidPosition}
             orbitRadius={15}
           />
-          <TwinklingZoomingStarField />
           <Asteroid
             position={asteroidPosition}
             scale={asteroidScale}

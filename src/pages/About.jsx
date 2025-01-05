@@ -6,11 +6,16 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import CallToAction from "../components/CallToAction";
+import { Canvas } from "@react-three/fiber";
+import TwinklingZoomingStarField from "../models/StarField";
 
 const About = () => {
   return (
-    <div className="bg-zinc-900 text-white w-full h-full relative">
-      <section className="max-container bg-zinc-900">
+    <>
+    <div className="blur-backdrop fixed top-0 left-0 w-full h-full overflow-hidden z-10"></div>
+
+    <div className="text-white w-full h-full relative z-20">
+      <section className="max-container">
         <h1 className="head-text">
           Hello, I'm{" "}
           <span className="blue-gradient_text font-semibold drop-shadow">
@@ -110,7 +115,7 @@ const About = () => {
 
         <CallToAction />
       </section>
-    </div>
+    </div></>
   );
 };
 

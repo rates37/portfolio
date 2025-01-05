@@ -2,11 +2,25 @@ import React from "react";
 import { projects } from "../constants";
 import { Link } from "react-router-dom";
 import CallToAction from "../components/CallToAction";
+import { Canvas } from "@react-three/fiber";
+import TwinklingZoomingStarField from "../models/StarField";
 
 const Projects = () => {
   return (
-    <div className="bg-zinc-900 text-white w-full h-full relative">
-      <section className="max-container bg-zinc-900">
+    <>
+    {/* <div className="fixed top-0 left-0 w-full h-full overflow-hidden">
+      <Canvas
+        className="w-full h-full bg-zinc-900"
+        camera={{ near: 0.01, far: 1000 }}
+      >
+        <TwinklingZoomingStarField />
+      </Canvas>
+    </div> */}
+
+    <div className="blur-backdrop fixed top-0 left-0 w-full h-full overflow-hidden z-10"></div>
+
+    <div className=" text-white w-full h-full relative z-20">
+      <section className="max-container ">
         <h1 className="head-text">
           My{" "}
           <span className="blue-gradient_text font-semibold drop-shadow">
@@ -65,7 +79,7 @@ const Projects = () => {
 
         <CallToAction />
       </section>
-    </div>
+    </div></>
   );
 };
 
