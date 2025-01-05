@@ -172,19 +172,32 @@ export const projects = [
         linkText: "PyPI",
         link: "https://pypi.org/project/BuildYourOwnEmbedding/",
       },
+      {
+        linkText: "Docs",
+        link: "https://rates37.github.io/build_your_own_embedding/BuildYourOwnEmbedding.html/",
+      },
     ],
   },
   {
     iconUrl: viziou,
     theme: "btn-back-red",
     name: "Viziou",
-    description: "Created a .",
-    link: "https://github.com/",
+    description: "Created an online a tool for calculating and visualising the Intersection over Union (IoU) metric for 2D and 3D convex polytopes.",
+    links: [
+      {
+        linkText: "Live Site",
+        link: "https://viziou.com",
+      },
+      {
+        linkText: "GitHub",
+        link: "https://github.com/viziou/viziou/",
+      },
+    ],
   },
   {
     iconUrl: mdn,
-    theme: "btn-back-red",
-    name: "Project name",
+    theme: "btn-back-blue",
+    name: "uniplan",
     description: "Developed something.",
     link: "https://github.com/",
   },
