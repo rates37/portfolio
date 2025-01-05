@@ -7,10 +7,9 @@ const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
   const handleChange = () => {};
 
-  // return <div className="text-white w-full h-screen relative bg-zinc-900">Contact</div>;
   return (
     <>
-    <div className="blur-backdrop fixed top-0 left-0 w-full h-full overflow-hidden z-10"></div>
+      <div className="blur-backdrop fixed top-0 left-0 w-full h-full overflow-hidden z-10"></div>
 
       <section className="relative flex lg:flex-row flex-col max-container h-screen z-20">
         <div className="flex-1 min-w-[50%] flex flex-col">

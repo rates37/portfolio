@@ -7,7 +7,7 @@ import TwinklingZoomingStarField from "./models/StarField";
 const App = () => {
   return (
     <main className="bg-zinc-900 ">
-<div className="fixed top-0 left-0 w-full h-full overflow-hidden">
+      <div className="fixed top-0 left-0 w-full h-full overflow-hidden">
         <Canvas
           className="w-full h-full bg-zinc-900"
           camera={{ near: 0.01, far: 1000 }}
