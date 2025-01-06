@@ -212,11 +212,4 @@ export const projects = [
       },
     ],
   },
-  {
-    iconUrl: github,
-    theme: "btn-back-green",
-    name: "Project name 2",
-    description: "Developed something else.",
-    link: "https://github.com/yoooooooo",
-  },
 ];
