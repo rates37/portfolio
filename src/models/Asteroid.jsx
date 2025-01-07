@@ -65,9 +65,9 @@ const Asteroid = ({
 
   const handleKeyDown = (e) => {
     if (e.key === "ArrowLeft") {
-      rotSpeed.current -= 0.0125 / 3;
+      rotSpeed.current -= 0.0125;
     } else if (e.key === "ArrowRight") {
-      rotSpeed.current += 0.0125 / 3;
+      rotSpeed.current += 0.0125;
     }
   };
 
