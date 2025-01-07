@@ -8,7 +8,7 @@ const QuickNavMenu = ({ onRotate }) => {
   ];
 
   return (
-    <div className="absolute bottom-4 right-4 p-4 bg-zinc-800/30 backdrop-blur-sm round-border-quicknav">
+    <div className="absolute bottom-4 right-4 p-4 bg-zinc-800/30 backdrop-blur-sm round-border-quicknav hidden sm:block">
       <div className="flex flex-col gap-2">
         <b className="text-white mb-2 underline">Quick Navigation:</b>
         {positions.map((pos) => (
