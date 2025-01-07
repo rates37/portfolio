@@ -4,17 +4,19 @@ import Loader from "../components/Loader";
 import Asteroid from "../models/Asteroid";
 import Spaceship from "../models/Spaceship";
 import HomeInfo from "../components/HomeInfo";
+import QuickNavMenu from "../components/QuickNavMenu";
 
 const Home = () => {
   const [isRotating, setIsRotating] = useState(false);
   const [isMouseDown, setisMouseDown] = useState(false);
   const [currentStage, setCurrentStage] = useState(null);
+  const [targetRotation, setTargetRotation] = useState(null);
 
   // Function to adjust the asteroid for ideal screen size
   const adjustAsteroid = () => {
     let screenScale;
     let screenPosition = [0, 2.5, -33];
-    let rotation = [0.1, 4.9, -0.1];
+    let rotation = [0.1, 0 + 2 * Math.PI, -0.1];
 
     if (window.innerWidth < 786) {
       screenScale = [0.9, 0.9, 0.9];
@@ -82,10 +84,12 @@ const Home = () => {
             setCurrentStage={setCurrentStage}
             hasInteracted={hasInteracted}
             setHasInteracted={setHasInteracted}
+            targetRotation={targetRotation}
+            setTargetRotation={setTargetRotation}
           />
-          {/* <OrbitControls /> */}
         </Suspense>
       </Canvas>
+      <QuickNavMenu onRotate={setTargetRotation} />
     </section>
   );
 };

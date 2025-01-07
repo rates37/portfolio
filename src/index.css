@@ -186,3 +186,11 @@ body:has(.card[data-color="green"]:hover) {
 .blur-backdrop {
   backdrop-filter: blur(10px);
 }
+
+.round-border-quicknav {
+  border-radius: 10px;
+}
+
+.round-border-quicknav-button {
+  border-radius: 5px;
+}

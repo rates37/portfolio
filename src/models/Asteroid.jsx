@@ -21,6 +21,8 @@ const Asteroid = ({
   setCurrentStage,
   hasInteracted,
   setHasInteracted,
+  targetRotation,
+  setTargetRotation,
   ...props
 }) => {
   const { nodes, materials } = useGLTF(asteroid);
@@ -128,6 +130,25 @@ const Asteroid = ({
   }, [gl, handlePointerDown, handlePointerUp, handlePointerMove]);
 
   useFrame(() => {
+    if (targetRotation !== null) {
+      const currentRotation = asteroidRef.current.rotation.y;
+      const difference = targetRotation - currentRotation;
+
+      // If close enough to the target, stop rotating
+      if (Math.abs(difference) < 0.01) {
+        asteroidRef.current.rotation.y = targetRotation;
+        setTargetRotation(null);
+        setIsRotating(false);
+        return;
+      }
+
+      // Smoothly rotate towards the target
+      const step = difference * 0.1;
+      asteroidRef.current.rotation.y += step;
+      setIsRotating(true);
+      return;
+    }
+
     if (!isRotating) {
       rotSpeed.current *= dampingFactor;
 
