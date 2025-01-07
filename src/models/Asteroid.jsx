@@ -19,6 +19,8 @@ const Asteroid = ({
   isMouseDown,
   setIsMouseDown,
   setCurrentStage,
+  hasInteracted,
+  setHasInteracted,
   ...props
 }) => {
   const { nodes, materials } = useGLTF(asteroid);
@@ -51,6 +53,7 @@ const Asteroid = ({
     e.preventDefault();
 
     if (isRotating && isMouseDown) {
+      if (!hasInteracted) setHasInteracted(true);
       const clientX = e.touches ? e.touches[0].clientX : e.clientX;
       const delta = (clientX - lastX.current) / viewport.width;
       asteroidRef.current.rotation.y += delta * 0.01 * Math.PI;

@@ -33,12 +33,21 @@ const Home = () => {
   };
   const [shipScale, shipPosition] = adjustShip();
 
+  const [hasInteracted, setHasInteracted] = useState(false);
+
   return (
     <section className="w-full h-screen relative">
       {/* Popup: */}
       <div className="absolute top-28 left-0 right-0 z-10 flex items-center justify-center">
         {currentStage && <HomeInfo currentStage={currentStage} />}
       </div>
+
+      {/* Instruction Popup */}
+      {!hasInteracted && (
+        <div className="absolute bottom-10 left-10 z-10 bg-zinc-800/70 backdrop-blur-sm rounded-lg p-3 text-white text-sm italic">
+          Click and drag to rotate the asteroid
+        </div>
+      )}
 
       {/* 3D Screen */}
       <Canvas
@@ -71,6 +80,8 @@ const Home = () => {
             isMouseDown={isMouseDown}
             setIsMouseDown={setisMouseDown}
             setCurrentStage={setCurrentStage}
+            hasInteracted={hasInteracted}
+            setHasInteracted={setHasInteracted}
           />
           {/* <OrbitControls /> */}
         </Suspense>
