@@ -45,7 +45,7 @@ const Home = () => {
       {/* Instruction Popup */}
       {!hasInteracted && (
         <div className="absolute bottom-10 left-10 z-10 bg-zinc-800/70 backdrop-blur-sm rounded-lg p-3 text-white text-sm italic">
-          Click and drag to rotate the asteroid
+          Click and drag to rotate the asteroid to reveal things about me!
         </div>
       )}
 
