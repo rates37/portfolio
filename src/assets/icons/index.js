@@ -14,6 +14,7 @@ import twitter from "./twitter.svg";
 import arrow from "./arrow.svg";
 import contact from "./contact.svg";
 import C from "./C.svg"
+import cpp from "./cpp.svg"
 
 export {
   css,
@@ -32,4 +33,5 @@ export {
   arrow,
   contact,
   C,
+  cpp,
 };
