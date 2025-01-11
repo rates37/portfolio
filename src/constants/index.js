@@ -13,6 +13,7 @@ import {
   typescript,
   C,
   cpp,
+  python,
 } from "../assets/icons";
 
 export const skills = [
@@ -92,7 +93,7 @@ export const skillMap = {
       name: "C++",
     },
     {
-      imageUrl: typescript,
+      imageUrl: python,
       name: "Python",
     },
     {

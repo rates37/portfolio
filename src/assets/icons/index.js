@@ -15,6 +15,7 @@ import arrow from "./arrow.svg";
 import contact from "./contact.svg";
 import C from "./C.svg"
 import cpp from "./cpp.svg"
+import python from "./python.svg"
 
 export {
   css,
@@ -34,4 +35,5 @@ export {
   contact,
   C,
   cpp,
+  python,
 };
