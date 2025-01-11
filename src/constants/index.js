@@ -20,6 +20,7 @@ import {
   pytorch,
   rxjs,
   tensorflow,
+  threejs,
 } from "../assets/icons";
 
 export const skills = [
@@ -135,7 +136,7 @@ export const skillMap = {
       name: "TensorFlow",
     },
     {
-      imageUrl: react,
+      imageUrl: threejs,
       name: "ThreeJS",
     },
     {

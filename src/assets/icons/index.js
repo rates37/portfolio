@@ -22,6 +22,7 @@ import matlab from "./matlab.png"
 import pytorch from "./pytorch.svg"
 import rxjs from "./rxjs.svg"
 import tensorflow from "./tensorflow.svg"
+import threejs from "./threejs.svg"
 
 export {
   css,
@@ -48,4 +49,5 @@ export {
   pytorch,
   rxjs,
   tensorflow,
+  threejs,
 };
