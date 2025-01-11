@@ -16,6 +16,7 @@ import contact from "./contact.svg";
 import C from "./C.svg"
 import cpp from "./cpp.svg"
 import python from "./python.svg"
+import verilog from "./verilog.svg"
 
 export {
   css,
@@ -36,4 +37,5 @@ export {
   C,
   cpp,
   python,
+  verilog,
 };
