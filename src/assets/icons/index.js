@@ -18,6 +18,7 @@ import cpp from "./cpp.svg"
 import python from "./python.svg"
 import verilog from "./verilog.svg"
 import go from "./go.svg"
+import matlab from "./matlab.png"
 
 export {
   css,
@@ -40,4 +41,5 @@ export {
   python,
   verilog,
   go,
+  matlab
 };

@@ -16,6 +16,7 @@ import {
   python,
   verilog,
   go,
+  matlab
 } from "../assets/icons";
 
 export const skills = [
@@ -107,7 +108,7 @@ export const skillMap = {
       name: "Go",
     },
     {
-      imageUrl: typescript,
+      imageUrl: matlab,
       name: "MATLAB",
     },
 
