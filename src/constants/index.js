@@ -16,7 +16,8 @@ import {
   python,
   verilog,
   go,
-  matlab
+  matlab,
+  pytorch,
 } from "../assets/icons";
 
 export const skills = [
@@ -120,7 +121,7 @@ export const skillMap = {
       name: "React",
     },
     {
-      imageUrl: react,
+      imageUrl: pytorch,
       name: "PyTorch",
     },
     {

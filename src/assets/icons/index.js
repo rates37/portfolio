@@ -19,6 +19,7 @@ import python from "./python.svg"
 import verilog from "./verilog.svg"
 import go from "./go.svg"
 import matlab from "./matlab.png"
+import pytorch from "./pytorch.svg"
 
 export {
   css,
@@ -41,5 +42,6 @@ export {
   python,
   verilog,
   go,
-  matlab
+  matlab,
+  pytorch,
 };
