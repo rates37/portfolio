@@ -21,6 +21,7 @@ import go from "./go.svg"
 import matlab from "./matlab.png"
 import pytorch from "./pytorch.svg"
 import rxjs from "./rxjs.svg"
+import tensorflow from "./tensorflow.svg"
 
 export {
   css,
@@ -46,4 +47,5 @@ export {
   matlab,
   pytorch,
   rxjs,
+  tensorflow,
 };

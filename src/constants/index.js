@@ -19,6 +19,7 @@ import {
   matlab,
   pytorch,
   rxjs,
+  tensorflow,
 } from "../assets/icons";
 
 export const skills = [
@@ -130,7 +131,7 @@ export const skillMap = {
       name: "RxJS",
     },
     {
-      imageUrl: react,
+      imageUrl: tensorflow,
       name: "TensorFlow",
     },
     {
