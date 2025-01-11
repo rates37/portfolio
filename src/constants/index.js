@@ -75,6 +75,69 @@ export const skills = [
   */
 ];
 
+export const skillMap = {
+  languages: [
+    {
+      imageUrl: typescript,
+      name: "TypeScript",
+    },
+    {
+      imageUrl: typescript,
+      name: "C",
+    },
+    {
+      imageUrl: typescript,
+      name: "C++",
+    },
+    {
+      imageUrl: typescript,
+      name: "Python",
+    },
+    {
+      imageUrl: typescript,
+      name: "Verilog",
+    },
+    {
+      imageUrl: typescript,
+      name: "Go",
+    },
+    {
+      imageUrl: typescript,
+      name: "MATLAB",
+    },
+
+
+  ],
+  frameworks: [
+    {
+      imageUrl: react,
+      name: "React",
+    },
+    {
+      imageUrl: react,
+      name: "PyTorch",
+    },
+    {
+      imageUrl: react,
+      name: "RxJS",
+    },
+    {
+      imageUrl: react,
+      name: "TensorFlow",
+    },
+    {
+      imageUrl: react,
+      name: "ThreeJS",
+    },
+    {
+      imageUrl: react,
+      name: "React",
+    },
+
+
+  ],
+};
+
 export const experiences = [
   {
     title: "Teaching Associate (Engineering, Computer Science)",
@@ -111,7 +174,7 @@ export const experiences = [
     company_name: "Monash University",
     icon: monash,
     iconBg: "#48ACF4",
-    date: "Jun 2022 - Present",
+    date: "Jul 2022 - Present",
     points: [
       `Designed a sophisticated <b>automated testing system</b>, enabling SSH access to remote virtual machines, 
       comprehensive <b>program evaluation</b>, and streamlined <b>feedback reporting</b>.`,
