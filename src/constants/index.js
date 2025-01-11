@@ -15,6 +15,7 @@ import {
   cpp,
   python,
   verilog,
+  go,
 } from "../assets/icons";
 
 export const skills = [
@@ -102,7 +103,7 @@ export const skillMap = {
       name: "Verilog",
     },
     {
-      imageUrl: typescript,
+      imageUrl: go,
       name: "Go",
     },
     {

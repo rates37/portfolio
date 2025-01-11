@@ -17,6 +17,7 @@ import C from "./C.svg"
 import cpp from "./cpp.svg"
 import python from "./python.svg"
 import verilog from "./verilog.svg"
+import go from "./go.svg"
 
 export {
   css,
@@ -38,4 +39,5 @@ export {
   cpp,
   python,
   verilog,
+  go,
 };
