@@ -13,6 +13,7 @@ import linkedin from "./linkedin.svg";
 import twitter from "./twitter.svg";
 import arrow from "./arrow.svg";
 import contact from "./contact.svg";
+import C from "./C.svg"
 
 export {
   css,
@@ -30,4 +31,5 @@ export {
   twitter,
   arrow,
   contact,
+  C,
 };

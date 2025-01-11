@@ -11,6 +11,7 @@ import {
   react,
   tailwindcss,
   typescript,
+  C,
 } from "../assets/icons";
 
 export const skills = [
@@ -82,7 +83,7 @@ export const skillMap = {
       name: "TypeScript",
     },
     {
-      imageUrl: typescript,
+      imageUrl: C,
       name: "C",
     },
     {
