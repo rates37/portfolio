@@ -139,11 +139,6 @@ export const skillMap = {
       imageUrl: threejs,
       name: "ThreeJS",
     },
-    {
-      imageUrl: react,
-      name: "React",
-    },
-
 
   ],
 };
