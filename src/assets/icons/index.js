@@ -20,6 +20,7 @@ import verilog from "./verilog.svg"
 import go from "./go.svg"
 import matlab from "./matlab.png"
 import pytorch from "./pytorch.svg"
+import rxjs from "./rxjs.svg"
 
 export {
   css,
@@ -44,4 +45,5 @@ export {
   go,
   matlab,
   pytorch,
+  rxjs,
 };

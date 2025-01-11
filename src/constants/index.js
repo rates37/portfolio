@@ -18,6 +18,7 @@ import {
   go,
   matlab,
   pytorch,
+  rxjs,
 } from "../assets/icons";
 
 export const skills = [
@@ -125,7 +126,7 @@ export const skillMap = {
       name: "PyTorch",
     },
     {
-      imageUrl: react,
+      imageUrl: rxjs,
       name: "RxJS",
     },
     {
