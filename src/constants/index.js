@@ -21,7 +21,7 @@ import {
   rxjs,
   tensorflow,
   threejs,
-  linkedin
+  linkedin,
 } from "../assets/icons";
 
 export const skills = [
@@ -116,8 +116,6 @@ export const skillMap = {
       imageUrl: matlab,
       name: "MATLAB",
     },
-
-
   ],
   frameworks: [
     {
@@ -140,7 +138,6 @@ export const skillMap = {
       imageUrl: threejs,
       name: "ThreeJS",
     },
-
   ],
 };
 

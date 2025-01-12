@@ -13,16 +13,16 @@ import linkedin from "./linkedin.svg";
 import twitter from "./twitter.svg";
 import arrow from "./arrow.svg";
 import contact from "./contact.svg";
-import C from "./C.svg"
-import cpp from "./cpp.svg"
-import python from "./python.svg"
-import verilog from "./verilog.svg"
-import go from "./go.svg"
-import matlab from "./matlab.png"
-import pytorch from "./pytorch.svg"
-import rxjs from "./rxjs.svg"
-import tensorflow from "./tensorflow.svg"
-import threejs from "./threejs.svg"
+import C from "./C.svg";
+import cpp from "./cpp.svg";
+import python from "./python.svg";
+import verilog from "./verilog.svg";
+import go from "./go.svg";
+import matlab from "./matlab.png";
+import pytorch from "./pytorch.svg";
+import rxjs from "./rxjs.svg";
+import tensorflow from "./tensorflow.svg";
+import threejs from "./threejs.svg";
 
 export {
   css,
