@@ -21,6 +21,7 @@ import {
   rxjs,
   tensorflow,
   threejs,
+  linkedin
 } from "../assets/icons";
 
 export const skills = [
@@ -206,23 +207,18 @@ export const experiences = [
   },
 ];
 
-// export const socialLinks = [
-//   {
-//     name: "Contact",
-//     iconUrl: contact,
-//     link: "/contact",
-//   },
-//   {
-//     name: "GitHub",
-//     iconUrl: github,
-//     link: "https://github.com/rates37",
-//   },
-//   {
-//     name: "LinkedIn",
-//     iconUrl: linkedin,
-//     link: "https://www.linkedin.com/in/satya-jhaveri-4a31b4288/",
-//   },
-// ];
+export const socialLinks = [
+  {
+    name: "GitHub",
+    iconUrl: github,
+    link: "https://github.com/rates37",
+  },
+  {
+    name: "LinkedIn",
+    iconUrl: linkedin,
+    link: "https://www.linkedin.com/in/satya-jhaveri-4a31b4288/",
+  },
+];
 
 export const projects = [
   {
@@ -281,3 +277,16 @@ export const projects = [
     ],
   },
 ];
+
+export const socials = {
+  github: {
+    name: "GitHub",
+    iconUrl: github,
+    link: "https://github.com/rates37",
+  },
+  linkedin: {
+    name: "LinkedIn",
+    iconUrl: linkedin,
+    link: "https://www.linkedin.com/in/satya-jhaveri-4a31b4288/",
+  },
+};
