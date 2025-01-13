@@ -27,6 +27,10 @@ body:has(.card[data-color="green"]:hover) {
     @apply max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 min-h-[calc(100vh-80px)];
   }
 
+  .max-container-wide {
+    @apply max-w-7xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 min-h-[calc(100vh-80px)];
+  }
+
   .head-text {
     @apply sm:text-5xl text-3xl font-semibold sm:leading-snug font-poppins;
   }
@@ -202,4 +206,15 @@ body:has(.card[data-color="green"]:hover) {
 
 .contact-btn {
   @apply text-cyan-600 bg-gradient-to-r from-[#ebfbff] to-[#a6ccfa] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center;
+}
+
+
+@media (max-width: 768px) { /* Adjust breakpoint as needed (e.g., 640px for smaller screens) */
+  .md\:grid { /*Target the grid wrapper*/
+    display: block; /* Stack items vertically */
+  }
+  .md\:grid > * { /*Target the bento grid items*/
+    width: 100%; /* Full width */
+    margin-bottom: 1rem; /* Add spacing between stacked items */
+  }
 }

@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar";
 import { About, Home, Contact, Projects } from "./pages";
 import { Canvas } from "@react-three/fiber";
 import TwinklingZoomingStarField from "./models/StarField";
+import BentoHome from "./pages/BentoHome";
 
 const App = () => {
   return (
@@ -22,7 +23,7 @@ const App = () => {
 
         {/* Routes: */}
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<BentoHome />} />
           <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           {/* <Route path="/contact" element={<Contact />} /> */}
