@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BentoGrid } from "react-bento";
 import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
 import { socials } from "../constants";
+import CallToAction from "../components/CallToAction";
 
 const BentoHome = () => {
   const SMALL_SCREEN_BOUNDARY = 700;
@@ -72,9 +73,9 @@ const BentoHome = () => {
           <ul className="list-disc list-inside text-sm text-white">
             <li>JavaScript</li>
           </ul>
-          <p className="mt-2 text-sm">
+          {/* <p className="mt-2 text-sm">
             Outside of work, I enjoy hiking, photography, and gaming.
-          </p>
+          </p> */}
         </div>
       ),
       width: 1,
@@ -145,6 +146,9 @@ const BentoHome = () => {
                 "rounded-lg shadow-md overflow-hidden border border-zinc-500 hover:border-cyan-400 transition duration-300",
             }}
           />
+
+          <hr className="border-slate-200" />
+          <CallToAction />
         </div>
       </div>
     </>
