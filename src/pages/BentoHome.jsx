@@ -26,7 +26,6 @@ const BentoHome = () => {
     window.innerWidth < SMALL_SCREEN_BOUNDARY
   );
 
-  // Update `isMobile` on window resize
   useEffect(() => {
     const handleResize = () => {
       setIsSmallScreen(window.innerWidth < SMALL_SCREEN_BOUNDARY);
@@ -45,7 +44,7 @@ const BentoHome = () => {
       element: (
         <div className="flex flex-col justify-between h-full p-4 text-slate-400">
           <div>
-            <p className="text-sm">welcome</p>
+            <p className="text-sm text-slate-500">welcome</p>
             <h1 className="text-lg text-slate-200">
               Hi, my name is <b className="blue-gradient_text">Satya</b>, an
               electronics and software engineer with a strong focus in
