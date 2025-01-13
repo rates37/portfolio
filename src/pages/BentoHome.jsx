@@ -65,15 +65,34 @@ const BentoHome = () => {
       title: "About Me",
       color: "bg-zinc-800",
       element: (
-        <div className="flex flex-col justify-start h-full p-4 text-slate-400">
+        <div className="flex flex-col justify-start h-full p-4 text-slate-200 text-sm">
           <h2 className="text-lg font-bold text-slate-200">About Me</h2>
-          <p className="mb-2">
+          <p className="text-sm">
             I'm a passionate developer who loves creating solutions.
           </p>
+          <br />
           <p>My primary tools of choice include:</p>
-          <ul className="list-disc list-inside text-sm text-white">
-            <li>JavaScript</li>
+          <ul className="list-disc list-inside text-xs text-white">
+            <li>Typescript</li>
+            <li>Python</li>
+            <li>PyTorch</li>
+            <li>C/C++</li>
           </ul>
+          <br />
+          <p>
+            While I have some preferred tools, I always carefully choose the
+            best one for the job, even if its not one of my go-to's. I ensure to
+            find the right solution for each project.
+          </p>
+          <br />
+          <div className="flex justify-center align-middle">
+            <NavLink
+              className=" border-cyan-200 border-2 text-white px-4 py-2 rounded hover:bg-cyan-400"
+              to="/projects"
+            >
+              My Projects
+            </NavLink>
+          </div>
         </div>
       ),
       width: 1,
@@ -85,13 +104,15 @@ const BentoHome = () => {
       color: "bg-zinc-800",
       element: (
         <div className="justify-center items-center h-full p-2 text-slate-400">
-            <h1 className="text-xl text-white">Want to know more?</h1>
-            <br />
-            <div className="flex justify-center align-middle">
-          <NavLink className=" border-cyan-200 border-2 text-white px-4 py-2 rounded hover:bg-cyan-400" to="/about">
-            My Experience
-          </NavLink>
-          
+          <h1 className="text-xl text-white">Want to know more?</h1>
+          <br />
+          <div className="flex justify-center align-middle">
+            <NavLink
+              className=" border-cyan-200 border-2 text-white px-4 py-2 rounded hover:bg-cyan-400"
+              to="/about"
+            >
+              My Experience
+            </NavLink>
           </div>
         </div>
       ),
