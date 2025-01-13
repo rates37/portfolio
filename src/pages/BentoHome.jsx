@@ -125,11 +125,12 @@ const BentoHome = () => {
       color: "bg-zinc-800",
       element: (
         <div className="flex flex-col justify-center items-center h-full p-4 text-slate-200">
-          <h3 className="text-lg font-bold">Time zone</h3>
-          <p className="text-2xl">
+          <h1 className="text-2xl font-bold">Time zone</h1>
+          <p className="text-2xl font-serif">
             {new Date().toLocaleTimeString("en-AU", {
               timeZone: "Australia/Melbourne",
-            })}
+            })}{" "}
+            AEDT
           </p>
         </div>
       ),
