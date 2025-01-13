@@ -6,21 +6,21 @@ import CallToAction from "../components/CallToAction";
 import { Link, NavLink } from "react-router-dom";
 
 const BentoHome = () => {
-    const [currentTime, setCurrentTime] = useState(new Date());
-  
-    useEffect(() => {
-      const intervalId = setInterval(() => {
-        setCurrentTime(new Date());
-      }, 1000);
-      return () => clearInterval(intervalId);
-    }, []);
-  
-    const melbourneTime = currentTime.toLocaleString('en-AU', {
-      timeZone: 'Australia/Melbourne',
-      hour: 'numeric',
-      minute: 'numeric',
-      second: 'numeric',
-    });
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const melbourneTime = currentTime.toLocaleString("en-AU", {
+    timeZone: "Australia/Melbourne",
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+  });
   const SMALL_SCREEN_BOUNDARY = 700;
   const [isSmallScreen, setIsSmallScreen] = useState(
     window.innerWidth < SMALL_SCREEN_BOUNDARY
@@ -141,10 +141,7 @@ const BentoHome = () => {
       element: (
         <div className="flex flex-col justify-center items-center h-full p-4 text-slate-200">
           <h1 className="text-2xl font-bold">Time zone</h1>
-          <p className="text-2xl font-serif">
-          {melbourneTime}{" "}
-            AEDT
-          </p>
+          <p className="text-2xl font-serif">{melbourneTime} AEDT</p>
         </div>
       ),
       width: 1,
