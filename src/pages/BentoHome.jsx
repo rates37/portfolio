@@ -3,6 +3,7 @@ import { BentoGrid } from "react-bento";
 import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
 import { socials } from "../constants";
 import CallToAction from "../components/CallToAction";
+import { Link, NavLink } from "react-router-dom";
 
 const BentoHome = () => {
   const SMALL_SCREEN_BOUNDARY = 700;
@@ -73,23 +74,25 @@ const BentoHome = () => {
           <ul className="list-disc list-inside text-sm text-white">
             <li>JavaScript</li>
           </ul>
-          {/* <p className="mt-2 text-sm">
-            Outside of work, I enjoy hiking, photography, and gaming.
-          </p> */}
         </div>
       ),
       width: 1,
-      height: 2,
+      height: 3,
     },
     {
       id: "call-to-action",
       title: "Get in Touch",
       color: "bg-zinc-800",
       element: (
-        <div className="flex justify-center items-center h-full p-4 text-slate-400">
-          <button className="border-cyan-200 border-2 text-white px-4 py-2 rounded hover:bg-cyan-400">
-            Contact Me
-          </button>
+        <div className="justify-center items-center h-full p-2 text-slate-400">
+            <h1 className="text-xl text-white">Want to know more?</h1>
+            <br />
+            <div className="flex justify-center align-middle">
+          <NavLink className=" border-cyan-200 border-2 text-white px-4 py-2 rounded hover:bg-cyan-400" to="/about">
+            My Experience
+          </NavLink>
+          
+          </div>
         </div>
       ),
       width: 1,
@@ -98,7 +101,7 @@ const BentoHome = () => {
     {
       id: "timezone",
       title: "Timezone",
-      color: "bg-zinc-900",
+      color: "bg-zinc-800",
       element: (
         <div className="flex flex-col justify-center items-center h-full p-4 text-slate-200">
           <h3 className="text-lg font-bold">Time zone</h3>
