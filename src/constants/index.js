@@ -235,7 +235,7 @@ export const projects = [
       },
       {
         linkText: "Docs",
-        link: "https://rates37.github.io/build_your_own_embedding/BuildYourOwnEmbedding.html/",
+        link: "https://rates37.github.io/build_your_own_embedding/",
       },
     ],
   },
