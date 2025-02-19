@@ -91,38 +91,40 @@ const HomePage = () => {
 
         {/* Role Card with Active Status */}
         <motion.div
-          className="bg-gray-800/50 p-6 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-700/30 relative row-span-2"
+          className="relative row-span-2 p-6 rounded-2xl shadow-lg border border-gray-700/30"
           variants={cardVariants}
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.3 }}
           whileHover={{ scale: 1.02 }}
         >
-          <div className="absolute top-4 right-4 flex items-center gap-2">
-            <motion.div
-              variants={pulseVariants}
-              animate="animate"
-              className="w-3 h-3 rounded-full bg-green-400"
-            />
-            {/* <span className="text-green-400 text-sm">Active</span> */}
+          <div className="absolute inset-0 bg-gray-800/50 backdrop-blur-sm rounded-2xl" />
+          <div className="relative">
+            <div className="absolute top-4 right-4 flex items-center gap-2">
+              <motion.div
+                variants={pulseVariants}
+                animate="animate"
+                className="w-3 h-3 rounded-full bg-green-400"
+              />
+            </div>
+            <h2 className="text-xl font-semibold text-purple-300">
+              Currently working as:
+            </h2>
+            <ul className="mt-3 text-gray-300 space-y-2">
+              <li className="flex items-center space-x-2">
+                <span className="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>
+                <span>Deputy Unit Coordinator</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
+                <span>Teaching Associate</span>
+              </li>
+              <li className="flex items-center space-x-2">
+                <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>
+                <span>AI Engineer</span>
+              </li>
+            </ul>
           </div>
-          <h2 className="text-xl font-semibold text-purple-300">
-            Currently working as:
-          </h2>
-          <ul className="mt-3 text-gray-300 space-y-2">
-            <li className="flex items-center space-x-2">
-              <span className="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>
-              <span>Deputy Unit Coordinator</span>
-            </li>
-            <li className="flex items-center space-x-2">
-              <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
-              <span>Teaching Associate</span>
-            </li>
-            <li className="flex items-center space-x-2">
-              <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>
-              <span>AI Engineer</span>
-            </li>
-          </ul>
         </motion.div>
 
         {/* Melbourne Time Card */}
