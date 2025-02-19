@@ -10,11 +10,10 @@ import {
   SiCplusplus,
   SiGnubash,
   SiPytorch,
-  SiTailwindcss,
 } from "react-icons/si";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { recentWork } from "../constants";
+import { recentWork, socialLinks } from "../constants";
 
 const techstackIcons = [
   { Icon: FaJs, label: "JavaScript", hoverColour: "javascript-yellow" },
@@ -218,7 +217,7 @@ const HomePage = () => {
           <div className="flex flex-col gap-4">
             <div className="flex justify-center space-x-4">
               <motion.a
-                href="https://github.com"
+                href="https://github.com/rates37"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
@@ -227,7 +226,7 @@ const HomePage = () => {
                 <FaGithub />
               </motion.a>
               <motion.a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/satya-jhaveri-4a31b4288/"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1 }}
