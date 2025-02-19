@@ -1,16 +1,6 @@
 import { motion } from "framer-motion";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaPython,
-  FaJs,
-  FaReact,
-} from "react-icons/fa";
-import {
-  SiCplusplus,
-  SiGnubash,
-  SiPytorch,
-} from "react-icons/si";
+import { FaGithub, FaLinkedin, FaPython, FaJs, FaReact } from "react-icons/fa";
+import { SiCplusplus, SiGnubash, SiPytorch } from "react-icons/si";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { recentWork, socialLinks } from "../constants";
@@ -22,7 +12,7 @@ const techstackIcons = [
   { Icon: SiPytorch, label: "PyTorch", hoverColour: "pytorch-orange" },
   { Icon: SiCplusplus, label: "C++", hoverColour: "cpp-blue" },
   { Icon: SiGnubash, label: "Bash", hoverColour: "bash-green" },
-]
+];
 
 const HomePage = () => {
   const [time, setTime] = useState(
@@ -199,7 +189,9 @@ const HomePage = () => {
                 whileHover="hover"
                 className="flex justify-center"
               >
-                <Icon className={`transition-colors duration-300 ${hoverColour}`} />
+                <Icon
+                  className={`transition-colors duration-300 ${hoverColour}`}
+                />
               </motion.div>
             ))}
           </div>
