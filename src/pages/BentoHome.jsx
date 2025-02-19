@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin, FaPython, FaJs, FaReact } from "react-icons/fa";
 import { SiCplusplus, SiGnubash, SiPytorch } from "react-icons/si";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { recentWork, socialLinks } from "../constants";
+import { recentWork } from "../constants";
 
 const techstackIcons = [
   { Icon: FaJs, label: "JavaScript", hoverColour: "javascript-yellow" },

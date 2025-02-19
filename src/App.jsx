@@ -1,6 +1,6 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import { About, Home, Contact, Projects } from "./pages";
+import { About, Projects } from "./pages";
 import { Canvas } from "@react-three/fiber";
 import TwinklingZoomingStarField from "./models/StarField";
 import HomePage from "./pages/BentoHome";
