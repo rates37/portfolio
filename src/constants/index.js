@@ -287,3 +287,21 @@ export const socials = {
     link: "https://www.linkedin.com/in/satya-jhaveri-4a31b4288/",
   },
 };
+
+export const recentWork = [
+  {
+    title: "Build Your Own Embedding",
+    desc: "Python library for generating synthetic neural responses",
+    link: "/projects",
+  },
+  {
+    title: "Viziou",
+    desc: "Web tool for calculating & visualizing IoU for 2D/3D convex polytopes",
+    link: "/projects",
+  },
+  {
+    title: "uniplan",
+    desc: "Alternative course planning tool for Monash University students",
+    link: "/projects",
+  },
+];
