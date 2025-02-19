@@ -1,5 +1,5 @@
 import React from "react";
-import { skills, experiences, skillMap } from "../constants";
+import { experiences, skillMap } from "../constants";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
