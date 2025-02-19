@@ -47,44 +47,46 @@ const About = () => {
             </div>
           </div> */}
 
-<div className="py-10 flex flex-col">
-      <h3 className="subhead-text">My Skills</h3>
+          <div className="py-10 flex flex-col">
+            <h3 className="subhead-text">My Skills</h3>
 
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12">
-        {/* Iterate over skillMap keys (languages, frameworks) */}
-        {Object.keys(skillMap).map((key) => (
-          <div className="flex flex-col" key={key}>
-            <h4 className="text-lg mb-4 capitalize">{key}</h4> {/* Capitalize section title */}
-            <div className="flex flex-wrap gap-12">
-              {skillMap[key].map((skill, i) => (
-                <div
-                  className="block-container w-20 h-20 relative group " // Add relative positioning
-                  key={`${key}-skill-${i}`}
-                >
-                  <div className="btn-back rounded-xl bg-white" />
-                  <div className="btn-front rounded-xl flex justify-center items-center">
-                    <img
-                      src={skill.imageUrl}
-                      alt={skill.name}
-                      className="w-1/2 h-1/2 object-contain"
-                    />
-                  </div>
-                  {/* Tooltip */}
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full
+            <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* Iterate over skillMap keys (languages, frameworks) */}
+              {Object.keys(skillMap).map((key) => (
+                <div className="flex flex-col" key={key}>
+                  <h4 className="text-lg mb-4 capitalize">{key}</h4>{" "}
+                  {/* Capitalize section title */}
+                  <div className="flex flex-wrap gap-12">
+                    {skillMap[key].map((skill, i) => (
+                      <div
+                        className="block-container w-20 h-20 relative group " // Add relative positioning
+                        key={`${key}-skill-${i}`}
+                      >
+                        <div className="btn-back rounded-xl bg-white" />
+                        <div className="btn-front rounded-xl flex justify-center items-center">
+                          <img
+                            src={skill.imageUrl}
+                            alt={skill.name}
+                            className="w-1/2 h-1/2 object-contain"
+                          />
+                        </div>
+                        {/* Tooltip */}
+                        <div
+                          className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-full
                                     bg-gray-800 text-white text-xs px-2 py-1 rounded-md opacity-0
                                     transition-opacity duration-300 pointer-events-none
                                     group-hover:opacity-100 z-10" // Added z-index
-                    style={{ marginBottom: '0.5rem' }}
-                  >
-                    {skill.name}
+                          style={{ marginBottom: "0.5rem" }}
+                        >
+                          {skill.name}
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               ))}
             </div>
           </div>
-        ))}
-      </div>
-    </div>
 
           <div className="py-16">
             <h3 className="subhead-text">My Experience</h3>
