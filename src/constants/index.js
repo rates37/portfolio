@@ -1,15 +1,7 @@
 import { byoe, monash, mdn, viziou, uniplan } from "../assets/images";
 import {
-  css,
-  git,
   github,
-  html,
-  javascript,
-  mongodb,
-  nextjs,
-  nodejs,
   react,
-  tailwindcss,
   typescript,
   C,
   cpp,
