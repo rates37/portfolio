@@ -188,7 +188,7 @@ body:has(.card[data-color="green"]:hover) {
 }
 
 .blur-backdrop {
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
 }
 
 .round-border-quicknav {
@@ -217,4 +217,143 @@ body:has(.card[data-color="green"]:hover) {
     width: 100%; /* Full width */
     margin-bottom: 1rem; /* Add spacing between stacked items */
   }
+}
+
+.home-container {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 48rem;
+  width: 100%;
+}
+
+/* Intro Card */
+.intro-card {
+  grid-column: span 2;
+  background: rgba(31, 41, 55, 0.5);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(55, 65, 81, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+.intro-card:hover {
+  transform: scale(1.02);
+}
+
+.intro-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.intro-text {
+  margin-top: 0.75rem;
+  color: #d1d5db;
+  line-height: 1.5;
+}
+
+/* Tech Stack */
+.tech-card {
+  background: rgba(31, 41, 55, 0.5);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(55, 65, 81, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+.tech-card:hover {
+  transform: scale(1.02);
+}
+
+.tech-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #67e8f9;
+  margin-bottom: 1rem;
+}
+
+.tech-icons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  text-align: center;
+  font-size: 1.875rem;
+  color: #9ca3af;
+}
+
+.tech-icon-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: color 0.3s ease-in-out;
+}
+
+.tech-icon-wrapper:hover .tech-icon {
+  color: #67e8f9;
+  transform: scale(1.2);
+}
+
+.tech-icon {
+  transition: transform 0.3s ease-in-out;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: -1.5rem;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.25rem;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+.tech-icon-wrapper:hover .tooltip {
+  opacity: 1;
+}
+
+
+.bash-green:hover {
+  @apply text-green-500
+}
+
+.react-blue:hover {
+  @apply text-cyan-400
+}
+
+.pytorch-orange:hover {
+  color: rgb(239, 76, 45)
+}
+
+.cpp-blue:hover {
+  @apply text-blue-600
+}
+
+.python-yellow:hover {
+  @apply text-yellow-400
+}
+
+.javascript-yellow:hover {
+  color: rgb(247, 223, 30)
 }

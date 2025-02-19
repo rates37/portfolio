@@ -1,192 +1,260 @@
-import React, { useState, useEffect } from "react";
-import { BentoGrid } from "react-bento";
-import { FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
-import { socials } from "../constants";
-import CallToAction from "../components/CallToAction";
-import { Link, NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaPython,
+  FaJs,
+  FaReact,
+} from "react-icons/fa";
+import {
+  SiCplusplus,
+  SiGnubash,
+  SiPytorch,
+  SiTailwindcss,
+} from "react-icons/si";
+import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { recentWork } from "../constants";
 
-const BentoHome = () => {
-  const [currentTime, setCurrentTime] = useState(new Date());
+const techstackIcons = [
+  { Icon: FaJs, label: "JavaScript", hoverColour: "javascript-yellow" },
+  { Icon: FaPython, label: "Python", hoverColour: "python-yellow" },
+  { Icon: FaReact, label: "React", hoverColour: "react-blue" },
+  { Icon: SiPytorch, label: "PyTorch", hoverColour: "pytorch-orange" },
+  { Icon: SiCplusplus, label: "C++", hoverColour: "cpp-blue" },
+  { Icon: SiGnubash, label: "Bash", hoverColour: "bash-green" },
+]
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
-    return () => clearInterval(intervalId);
-  }, []);
-
-  const melbourneTime = currentTime.toLocaleString("en-AU", {
-    timeZone: "Australia/Melbourne",
-    hour: "numeric",
-    minute: "numeric",
-    second: "numeric",
-  });
-  const SMALL_SCREEN_BOUNDARY = 700;
-  const [isSmallScreen, setIsSmallScreen] = useState(
-    window.innerWidth < SMALL_SCREEN_BOUNDARY
+const HomePage = () => {
+  const [time, setTime] = useState(
+    new Date().toLocaleTimeString("en-AU", {
+      timeZone: "Australia/Melbourne",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    })
   );
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < SMALL_SCREEN_BOUNDARY);
-    };
+    const timer = setInterval(() => {
+      setTime(
+        new Date().toLocaleTimeString("en-AU", {
+          timeZone: "Australia/Melbourne",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: true,
+        })
+      );
+    }, 1000);
 
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup the event listener on component unmount
-    return () => window.removeEventListener("resize", handleResize);
+    return () => clearInterval(timer);
   }, []);
-  const bentoItems = [
-    {
-      id: "welcome",
-      title: "Welcome",
-      color: "bg-zinc-800",
-      element: (
-        <div className="flex flex-col justify-between h-full p-4 text-slate-400">
-          <div>
-            <p className="text-sm text-slate-500">welcome</p>
-            <h1 className="text-lg text-slate-200">
-              Hi, my name is <b className="blue-gradient_text">Satya</b>, an
-              electronics and software engineer with a strong focus in
-              Artificial Intelligence, Web Development, and Computer Systems.
-            </h1>
-          </div>
-          <div className="flex ">
-            <a
-              href={socials.linkedin.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-2 "
-            >
-              <FaLinkedin size={24} />
-            </a>
-            <a
-              href={socials.github.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-2"
-            >
-              <FaGithub size={24} />
-            </a>
-          </div>
-        </div>
-      ),
-      width: 3,
-      height: 2,
+
+  const cardVariants = {
+    offscreen: { opacity: 0, y: 20 },
+    onscreen: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "tween",
+        bounce: 0.4,
+        duration: 0.8,
+      },
     },
-    {
-      id: "about-me",
-      title: "About Me",
-      color: "bg-zinc-800",
-      element: (
-        <div className="flex flex-col justify-start h-full p-4 text-slate-200 text-sm">
-          <h2 className="text-lg font-bold text-slate-200">About Me</h2>
-          <p className="text-sm">
-            I'm a passionate developer who loves creating solutions.
-          </p>
-          <br />
-          <p>My primary tools of choice include:</p>
-          <ul className="list-disc list-inside text-xs text-white">
-            <li>Typescript</li>
-            <li>Python</li>
-            <li>PyTorch</li>
-            <li>C/C++</li>
-          </ul>
-          <br />
-          <p>
-            While I have some preferred tools, I always carefully choose the
-            best one for the job, even if its not one of my go-to's. I ensure to
-            find the right solution for each project.
-          </p>
-          <br />
-          <div className="flex justify-center align-middle">
-            <NavLink
-              className=" border-cyan-200 border-2 text-white px-4 py-2 rounded hover:bg-cyan-300 hover:text-slate-900 transition duration-300"
-              to="/projects"
-            >
-              My Projects
-            </NavLink>
-          </div>
-        </div>
-      ),
-      width: 1,
-      height: 3,
+  };
+
+  const iconVariants = {
+    hover: { scale: 1.2, rotate: 5 },
+  };
+
+  const pulseVariants = {
+    animate: {
+      scale: [1, 1.2, 1],
+      opacity: [0.5, 1, 0.5],
+      transition: {
+        duration: 2,
+        repeat: Infinity,
+        ease: "easeInOut",
+      },
     },
-    {
-      id: "call-to-action",
-      title: "Get in Touch",
-      color: "bg-zinc-800",
-      element: (
-        <div className="justify-center items-center h-full p-2 text-slate-400">
-          <h1 className="text-xl text-white">Want to know more?</h1>
-          <br />
-          <div className="flex justify-center align-middle">
-            <NavLink
-              className=" border-cyan-200 border-2 text-white px-4 py-2 rounded hover:bg-cyan-300 hover:text-slate-900 transition duration-300"
-              to="/about"
-            >
-              My Experience
-            </NavLink>
-          </div>
-        </div>
-      ),
-      width: 1,
-      height: 1,
-    },
-    {
-      id: "timezone",
-      title: "Timezone",
-      color: "bg-zinc-800",
-      element: (
-        <div className="flex flex-col justify-center items-center h-full p-4 text-slate-200">
-          <h1 className="text-2xl font-bold">Time zone</h1>
-          <p className="text-2xl font-serif">{melbourneTime} AEDT</p>
-        </div>
-      ),
-      width: 1,
-      height: 1,
-    },
-    {
-      id: "now",
-      title: "What I'm Doing",
-      color: "bg-zinc-800",
-      element: (
-        <div className="relative justify-between items-center h-full p-4 text-white">
-          <p>Currently working as:</p>
-          <ul className="list-disc list-inside text-sm text-white">
-            <li>Deputy Unit Coordinator</li>
-            <li>Freelancer</li>
-            <li>Teaching Associate</li>
-          </ul>
-          <div className="absolute top-2 right-2 w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-        </div>
-      ),
-      width: 1,
-      height: 1,
-    },
-  ].map((g) => (isSmallScreen ? { ...g, width: 1 } : g));
+  };
 
   return (
-    <>
-      <div className="max-container-wide min-h-screen bg-zinc-900 flex justify-center items-center p-8 z-100">
-        <div className="relative z-20">
-          <BentoGrid
-            items={bentoItems}
-            gridCols={isSmallScreen ? 1 : 4}
-            rowHeight={150}
-            classNames={{
-              container: "gap-4",
-              elementContainer:
-                "rounded-lg shadow-md overflow-hidden border border-zinc-500 hover:border-cyan-400 transition duration-300",
-            }}
-          />
+    <div className="relative z-10 min-h-screen text-gray-200 flex justify-center items-center p-8">
+      <div className="grid grid-cols-2 auto-rows-min gap-6 max-w-3xl w-full">
+        {/* Intro Card - Full width */}
+        <motion.div
+          className="col-span-2 bg-gray-800/50 p-6 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-700/30"
+          variants={cardVariants}
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.3 }}
+          whileHover={{ scale: 1.02 }}
+        >
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            Hey, I'm Satya
+          </h1>
+          <p className="mt-3 text-gray-300 leading-relaxed">
+            Passionate Electronics and Software Engineer. I love creating
+            elegant solutions for complex problems through code.
+          </p>
+        </motion.div>
 
-          <hr className="border-slate-200" />
-          <CallToAction />
-        </div>
+        {/* Role Card with Active Status */}
+        <motion.div
+          className="bg-gray-800/50 p-6 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-700/30 relative row-span-2"
+          variants={cardVariants}
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.3 }}
+          whileHover={{ scale: 1.02 }}
+        >
+          <div className="absolute top-4 right-4 flex items-center gap-2">
+            <motion.div
+              variants={pulseVariants}
+              animate="animate"
+              className="w-3 h-3 rounded-full bg-green-400"
+            />
+            {/* <span className="text-green-400 text-sm">Active</span> */}
+          </div>
+          <h2 className="text-xl font-semibold text-purple-300">
+            Currently working as:
+          </h2>
+          <ul className="mt-3 text-gray-300 space-y-2">
+            <li className="flex items-center space-x-2">
+              <span className="w-1.5 h-1.5 bg-purple-400 rounded-full"></span>
+              <span>Deputy Unit Coordinator</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <span className="w-1.5 h-1.5 bg-blue-400 rounded-full"></span>
+              <span>Teaching Associate</span>
+            </li>
+            <li className="flex items-center space-x-2">
+              <span className="w-1.5 h-1.5 bg-cyan-400 rounded-full"></span>
+              <span>AI Engineer</span>
+            </li>
+          </ul>
+        </motion.div>
+
+        {/* Melbourne Time Card */}
+        <motion.div
+          className="bg-gray-800/50 p-6 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-700/30 row-span-2 flex flex-col justify-center"
+          variants={cardVariants}
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.3 }}
+          whileHover={{ scale: 1.02 }}
+        >
+          <div className="flex flex-col items-center justify-center h-full">
+            <h2 className="text-xl font-semibold text-cyan-300 mb-4">
+              Local Time
+            </h2>
+            <div className="text-5xl font-bold text-gray-200 mb-4">{time}</div>
+            <p className="text-gray-400">Melbourne, Australia</p>
+          </div>
+        </motion.div>
+
+        {/* Projects Preview */}
+        <motion.div
+          className="col-span-2 bg-gray-800/50 p-6 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-700/30"
+          variants={cardVariants}
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.3 }}
+          whileHover={{ scale: 1.02 }}
+        >
+          <h2 className="text-xl font-semibold text-green-300 mb-3">
+            Recent Work
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {recentWork.map((project, index) => (
+              <Link
+                key={index}
+                to={project.link}
+                className="block p-3 rounded-lg bg-gray-700/30 hover:bg-gray-700/50 transition-colors"
+              >
+                <div className="font-medium text-white">{project.title}</div>
+                <div className="text-sm text-gray-400">{project.desc}</div>
+              </Link>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Tech Stack */}
+        <motion.div
+          className="bg-gray-800/50 p-6 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-700/30"
+          variants={cardVariants}
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.3 }}
+          whileHover={{ scale: 1.02 }}
+        >
+          <h2 className="text-xl font-semibold text-cyan-300 mb-4">
+            Tech Stack
+          </h2>
+          <div className="grid grid-cols-3 gap-4 text-3xl text-gray-400">
+            {techstackIcons.map(({ Icon, label, hoverColour }, index) => (
+              <motion.div
+                key={index}
+                variants={iconVariants}
+                whileHover="hover"
+                className="flex justify-center"
+              >
+                <Icon className={`transition-colors duration-300 ${hoverColour}`} />
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Connect */}
+        <motion.div
+          className="bg-gray-800/50 p-6 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-700/30"
+          variants={cardVariants}
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.3 }}
+          whileHover={{ scale: 1.02 }}
+        >
+          <div className="flex flex-col gap-4">
+            <div className="flex justify-center space-x-4">
+              <motion.a
+                href="https://github.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                className="text-gray-400 hover:text-white text-2xl"
+              >
+                <FaGithub />
+              </motion.a>
+              <motion.a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1 }}
+                className="text-gray-400 hover:text-white text-2xl"
+              >
+                <FaLinkedin />
+              </motion.a>
+            </div>
+            <div className="flex flex-col space-y-2">
+              <Link
+                to="/about"
+                className="px-4 py-2 rounded-lg bg-blue-500/10 hover:bg-blue-500/20 text-blue-300 transition-colors text-center"
+              >
+                More About Me
+              </Link>
+              <Link
+                to="/projects"
+                className="px-4 py-2 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 transition-colors text-center"
+              >
+                View Projects
+              </Link>
+            </div>
+          </div>
+        </motion.div>
       </div>
-    </>
+    </div>
   );
 };
 
-export default BentoHome;
+export default HomePage;
