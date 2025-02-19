@@ -208,12 +208,14 @@ body:has(.card[data-color="green"]:hover) {
   @apply text-cyan-600 bg-gradient-to-r from-[#ebfbff] to-[#a6ccfa] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center;
 }
 
-
-@media (max-width: 768px) { /* Adjust breakpoint as needed (e.g., 640px for smaller screens) */
-  .md\:grid { /*Target the grid wrapper*/
+@media (max-width: 768px) {
+  /* Adjust breakpoint as needed (e.g., 640px for smaller screens) */
+  .md\:grid {
+    /*Target the grid wrapper*/
     display: block; /* Stack items vertically */
   }
-  .md\:grid > * { /*Target the bento grid items*/
+  .md\:grid > * {
+    /*Target the bento grid items*/
     width: 100%; /* Full width */
     margin-bottom: 1rem; /* Add spacing between stacked items */
   }
@@ -333,27 +335,26 @@ body:has(.card[data-color="green"]:hover) {
   opacity: 1;
 }
 
-
 .bash-green:hover {
-  @apply text-green-500
+  @apply text-green-500;
 }
 
 .react-blue:hover {
-  @apply text-cyan-400
+  @apply text-cyan-400;
 }
 
 .pytorch-orange:hover {
-  color: rgb(239, 76, 45)
+  color: rgb(239, 76, 45);
 }
 
 .cpp-blue:hover {
-  @apply text-blue-600
+  @apply text-blue-600;
 }
 
 .python-yellow:hover {
-  @apply text-yellow-400
+  @apply text-yellow-400;
 }
 
 .javascript-yellow:hover {
-  color: rgb(247, 223, 30)
+  color: rgb(247, 223, 30);
 }

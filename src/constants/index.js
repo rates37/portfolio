@@ -304,4 +304,4 @@ export const recentWork = [
     desc: "Alternative course planning tool for Monash University students",
     link: "/projects",
   },
-]
+];
