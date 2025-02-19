@@ -147,7 +147,7 @@ export const experiences = [
     company_name: "Monash University",
     icon: monash,
     iconBg: "#48ACF4",
-    date: "Jan 2022 - Present",
+    date: "Jan 2022 - Dec 2024",
     points: [
       `Provided <b>academic support</b> to students across a range of settings, including via helpdesks, forums, workshops
       and in person laboratory classes`,
@@ -200,6 +200,19 @@ export const experiences = [
     points: [
       "Reviewed applications of potential recruits to the organisation's <b>Artificial Intelligence</b> branch.",
       "Conducted <b>technical interviews</b> with potential members, focusing on <b>machine learning</b> concepts and <b>interpersonal skills</b>.",
+    ],
+  },
+
+  {
+    title: "Deputy Unit Coordinator",
+    company_name: "Monash University",
+    icon: monash,
+    iconBg: "#48ACF4",
+    date: "Jan 2025 - Present",
+    points: [
+      "Coordinated and <b>streamlined communication</b> between teaching staff, students, and administrative staff, ensuring effective dissemination of information.",
+      "Managed the <b>onboarding and mentoring</b> of new academic staff, ensuring they were well-equipped for duties.",
+      "Analysed feedback and implemented improvements to ensure increased student satisfaction and engagement.",
     ],
   },
 ];
