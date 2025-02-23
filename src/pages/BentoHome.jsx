@@ -73,13 +73,15 @@ const HomePage = () => {
       <div className="grid grid-cols-2 auto-rows-min gap-6 max-w-3xl w-full">
         {/* Intro Card - Full width */}
         <motion.div
-          className="col-span-2 bg-gray-800/50 p-6 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-700/30"
+          className="relative col-span-2 bg-gray-800/50 p-6 rounded-2xl shadow-lg border border-gray-700/30"
           variants={cardVariants}
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.3 }}
           whileHover={{ scale: 1.02 }}
         >
+        <div className="absolute inset-0 bg-gray-800/50 backdrop-blur-sm rounded-2xl" />
+        <div className="relative">
           <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             Hey, I'm Satya
           </h1>
@@ -87,6 +89,7 @@ const HomePage = () => {
             Passionate Electronics and Software Engineer. I love creating
             elegant solutions for complex problems through code.
           </p>
+          </div>
         </motion.div>
 
         {/* Role Card with Active Status */}
@@ -129,13 +132,15 @@ const HomePage = () => {
 
         {/* Melbourne Time Card */}
         <motion.div
-          className="bg-gray-800/50 p-6 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-700/30 row-span-2 flex flex-col justify-center"
+          className="relative p-6 rounded-2xl shadow-lg border border-gray-700/30 row-span-2 flex flex-col justify-center"
           variants={cardVariants}
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.3 }}
           whileHover={{ scale: 1.02 }}
         >
+        <div className="absolute inset-0 bg-gray-800/50 backdrop-blur-sm rounded-2xl" />
+        <div className="relative">
           <div className="flex flex-col items-center justify-center h-full">
             <h2 className="text-xl font-semibold text-cyan-300 mb-4">
               Local Time
@@ -143,17 +148,20 @@ const HomePage = () => {
             <div className="text-5xl font-bold text-gray-200 mb-4">{time}</div>
             <p className="text-gray-400">Melbourne, Australia</p>
           </div>
+          </div>
         </motion.div>
 
         {/* Projects Preview */}
         <motion.div
-          className="col-span-2 bg-gray-800/50 p-6 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-700/30"
+          className="relative col-span-2 p-6 rounded-2xl shadow-lg border border-gray-700/30"
           variants={cardVariants}
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.3 }}
           whileHover={{ scale: 1.02 }}
         >
+        <div className="absolute inset-0 bg-gray-800/50 backdrop-blur-sm rounded-2xl" />
+        <div className="relative">
           <h2 className="text-xl font-semibold text-green-300 mb-3">
             Recent Work
           </h2>
@@ -169,17 +177,20 @@ const HomePage = () => {
               </Link>
             ))}
           </div>
+          </div>
         </motion.div>
 
         {/* Tech Stack */}
         <motion.div
-          className="bg-gray-800/50 p-6 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-700/30"
+          className="relative p-6 rounded-2xl shadow-lg border border-gray-700/30"
           variants={cardVariants}
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.3 }}
           whileHover={{ scale: 1.02 }}
         >
+        <div className="absolute inset-0 bg-gray-800/50 backdrop-blur-sm rounded-2xl" />
+        <div className="relative">
           <h2 className="text-xl font-semibold text-cyan-300 mb-4">
             Tech Stack
           </h2>
@@ -197,17 +208,20 @@ const HomePage = () => {
               </motion.div>
             ))}
           </div>
+          </div>
         </motion.div>
 
         {/* Connect */}
         <motion.div
-          className="bg-gray-800/50 p-6 rounded-2xl shadow-lg backdrop-blur-sm border border-gray-700/30"
+          className="relative p-6 rounded-2xl shadow-lg border border-gray-700/30"
           variants={cardVariants}
           initial="offscreen"
           whileInView="onscreen"
           viewport={{ once: true, amount: 0.3 }}
           whileHover={{ scale: 1.02 }}
         >
+        <div className="absolute inset-0 bg-gray-800/50 backdrop-blur-sm rounded-2xl" />
+        <div className="relative">
           <div className="flex flex-col gap-4">
             <div className="flex justify-center space-x-4">
               <motion.a
@@ -243,6 +257,7 @@ const HomePage = () => {
                 View Projects
               </Link>
             </div>
+          </div>
           </div>
         </motion.div>
       </div>
