@@ -1,4 +1,4 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Route, HashRouter as Router, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import { About, Projects } from "./pages";
 import { Canvas } from "@react-three/fiber";
