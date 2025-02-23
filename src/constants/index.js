@@ -204,7 +204,7 @@ export const projects = [
     theme: "btn-back-blue",
     name: "uniplan",
     description:
-      "Developed a course planning tool for Monash University students in a period due to a period of downtime in the university's official course planning tool.",
+      "Developed a course planning tool for Monash University students due to a period of downtime in the university's official course planning tool.",
     links: [
       {
         linkText: "Live Site",
