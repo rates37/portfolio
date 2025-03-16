@@ -1,4 +1,11 @@
-import { byoe, monash, mdn, viziou, uniplan } from "../assets/images";
+import {
+  byoe,
+  monash,
+  mdn,
+  viziou,
+  uniplan,
+  mips_tester,
+} from "../assets/images";
 import {
   github,
   react,
@@ -162,6 +169,19 @@ export const socialLinks = [
 
 export const projects = [
   {
+    iconUrl: mips_tester,
+    theme: "btn-back-pink",
+    name: "MIPS Tester",
+    description:
+      "Designed and implemented a Python library to support the automated testing / unittesting of MIPS assembly programs and subroutines.",
+    links: [
+      {
+        linkText: "GitHub",
+        link: "https://github.com/rates37/mips-tester",
+      },
+    ],
+  },
+  {
     iconUrl: byoe,
     theme: "btn-back-green",
     name: "Build Your Own Embedding",
@@ -243,8 +263,8 @@ export const recentWork = [
     link: "/projects",
   },
   {
-    title: "uniplan",
-    desc: "Alternative course planning tool for Monash University students",
+    title: "Mips Test Library",
+    desc: "Python library for automating tests of MIPS assembly programs",
     link: "/projects",
   },
 ];
