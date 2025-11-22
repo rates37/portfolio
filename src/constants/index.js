@@ -5,6 +5,7 @@ import {
   viziou,
   uniplan,
   mips_tester,
+  clexp,
 } from "../assets/images";
 import {
   github,
@@ -168,6 +169,18 @@ export const socialLinks = [
 ];
 
 export const projects = [
+  {
+    iconUrl: clexp,
+    theme: "btn-back-orange",
+    name: "clexp",
+    description: "Created a terminal-based file explorer in Rust.",
+    links: [
+      {
+        linkText: "GitHub",
+        link: "https://github.com/rates37/clexp",
+      },
+    ],
+  },
   {
     iconUrl: mips_tester,
     theme: "btn-back-pink",

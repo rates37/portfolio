@@ -4,5 +4,6 @@ import byoe from "./byoe.svg";
 import viziou from "./viziou.png";
 import uniplan from "./uniplan.png";
 import mips_tester from "./mips-tester.svg";
+import clexp from "./clexp.png"
 
-export { monash, mdn, byoe, viziou, uniplan, mips_tester };
+export { monash, mdn, byoe, viziou, uniplan, mips_tester, clexp };
