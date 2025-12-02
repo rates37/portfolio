@@ -4,6 +4,7 @@ import byoe from "./byoe.svg";
 import viziou from "./viziou.png";
 import uniplan from "./uniplan.png";
 import mips_tester from "./mips-tester.svg";
-import clexp from "./clexp.png"
+import clexp from "./clexp.png";
+import canonical from "./canonical.png";
 
-export { monash, mdn, byoe, viziou, uniplan, mips_tester, clexp };
+export { monash, mdn, byoe, viziou, uniplan, mips_tester, clexp, canonical };

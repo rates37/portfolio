@@ -22,10 +22,7 @@ const About = () => {
           </h1>
 
           <div className="mt-5 flex flex-col gap-3 text-slate-400">
-            <p>
-              A Software Engineer based in Melbourne, specialising in AI and Web
-              Development.
-            </p>
+            <p>Software Engineer based in Melbourne.</p>
           </div>
 
           {/* <div className="py-10 flex flex-col">

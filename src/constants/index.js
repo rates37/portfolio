@@ -6,6 +6,7 @@ import {
   uniplan,
   mips_tester,
   clexp,
+  canonical,
 } from "../assets/images";
 import {
   github,
@@ -99,7 +100,7 @@ export const experiences = [
     company_name: "Deep Neuron",
     icon: mdn,
     iconBg: "#8F88F7",
-    date: "Aug 2022 - Present",
+    date: "Aug 2022 - Jun 2025",
     points: [
       `Designed and implemented <b>Deep Q-Learning</b> algorithms to autonomously pilot drones in simulation environment.`,
       `Enhanced <b>accuracy</b> of deep-learning models for morphology analysis using <b>Wavelet Transforms</b>`,
@@ -115,7 +116,7 @@ export const experiences = [
     company_name: "Monash University",
     icon: monash,
     iconBg: "#48ACF4",
-    date: "Jul 2022 - Present",
+    date: "Jul 2022 - Nov 2025",
     points: [
       `Designed a sophisticated <b>automated testing system</b>, enabling SSH access to remote virtual machines, 
       comprehensive <b>program evaluation</b>, and streamlined <b>feedback reporting</b>.`,
@@ -146,11 +147,23 @@ export const experiences = [
     company_name: "Monash University",
     icon: monash,
     iconBg: "#48ACF4",
-    date: "Jan 2025 - Present",
+    date: "Jan 2025 - Nov 2025",
     points: [
       "Coordinated and <b>streamlined communication</b> between teaching staff, students, and administrative staff, ensuring effective dissemination of information.",
       "Managed the <b>onboarding and mentoring</b> of new academic staff, ensuring they were well-equipped for duties.",
       "Analysed feedback and implemented improvements to ensure increased student satisfaction and engagement.",
+    ],
+  },
+
+  {
+    title: "Software Engineer",
+    company_name: "Canonical",
+    icon: canonical,
+    iconBg: "#e95420",
+    date: "Nov 2025 - Present",
+    points: [
+      `Stay tuned...`,
+      //   `Enhanced <b>accuracy</b> of deep-learning models for morphology analysis using <b>Wavelet Transforms</b>`,
     ],
   },
 ];
@@ -271,8 +284,8 @@ export const recentWork = [
     link: "/projects",
   },
   {
-    title: "Viziou",
-    desc: "Web tool for calculating & visualizing IoU for 2D/3D convex polytopes",
+    title: "Clexp",
+    desc: "TUI-based file explorer in Rust",
     link: "/projects",
   },
   {
