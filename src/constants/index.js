@@ -7,6 +7,7 @@ import {
   mips_tester,
   clexp,
   canonical,
+  advent_of_fpga,
 } from "../assets/images";
 import {
   github,
@@ -182,6 +183,23 @@ export const socialLinks = [
 ];
 
 export const projects = [
+  {
+    iconUrl: advent_of_fpga,
+    theme: "btn-back-deep-blue",
+    name: "Jane Street - Advent of FPGA Winner",
+    description:
+      "Selected as a winner for the Advent of FPGA 2025 competition. Implemented a range of complex algorithms in synthesisable Verilog and Hardcaml to solve Advent of Code problems.",
+    links: [
+      {
+        linkText: "GitHub",
+        link: "https://github.com/rates37/advent-of-fpga-2025",
+      },
+      {
+        linkText: "Results Post",
+        link: "https://blog.janestreet.com/advent-of-fpga-challenge-2025-results/",
+      },
+    ],
+  },
   {
     iconUrl: clexp,
     theme: "btn-back-orange",
