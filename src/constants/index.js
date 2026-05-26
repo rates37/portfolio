@@ -189,6 +189,7 @@ export const projects = [
     name: "Jane Street - Advent of FPGA Winner",
     description:
       "Selected as a winner for the Advent of FPGA 2025 competition. Implemented a range of complex algorithms in synthesisable Verilog and Hardcaml to solve Advent of Code problems.",
+    tags: ["Hardware", "Algorithms"],
     links: [
       {
         linkText: "GitHub",
@@ -205,6 +206,7 @@ export const projects = [
     theme: "btn-back-orange",
     name: "clexp",
     description: "Created a terminal-based file explorer in Rust.",
+    tags: ["Rust", "Tools"],
     links: [
       {
         linkText: "GitHub",
@@ -218,6 +220,7 @@ export const projects = [
     name: "MIPS Tester",
     description:
       "Designed and implemented a Python library to support the automated testing / unittesting of MIPS assembly programs and subroutines.",
+    tags: ["Python", "Testing"],
     links: [
       {
         linkText: "GitHub",
@@ -231,6 +234,7 @@ export const projects = [
     name: "Build Your Own Embedding",
     description:
       "Designed and currently maintain a Python library to support the generation and analysis of synthetic neural responses, in order to assist with neuroscience research.",
+    tags: ["Python", "Machine Learning"],
     links: [
       {
         linkText: "GitHub",
@@ -252,6 +256,7 @@ export const projects = [
     name: "Viziou",
     description:
       "Created an online a tool for calculating and visualising the Intersection over Union (IoU) metric for 2D and 3D convex polytopes.",
+    tags: ["React", "Web"],
     links: [
       {
         linkText: "Live Site",
@@ -269,6 +274,7 @@ export const projects = [
     name: "uniplan",
     description:
       "Developed a course planning tool for Monash University students due to a period of downtime in the university's official course planning tool.",
+    tags: ["React", "Web"],
     links: [
       {
         linkText: "Live Site",
