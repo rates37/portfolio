@@ -29,9 +29,14 @@ const NavBar = () => {
           <NavLink to="/projects" className={linkClass}>
             <span className="text-[#6f6f6f] mr-1">./</span>projects
           </NavLink>
-          <NavLink to="https://rates37.github.io/blog" className={linkClass}>
+          <a
+            href="https://rates37.github.io/blog"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={linkClass({ isActive: false })}
+          >
             <span className="text-[#6f6f6f] mr-1">./</span>blog
-          </NavLink>
+          </a>
         </nav>
       </div>
     </header>
