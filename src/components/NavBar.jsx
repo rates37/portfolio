@@ -1,37 +1,36 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+const linkClass = ({ isActive }) =>
+  `mono text-[0.72rem] tracking-[0.18em] uppercase transition-colors duration-200 ${
+    isActive ? "text-white" : "text-[#8a8a8a] hover:text-white"
+  }`;
+
 const NavBar = () => {
   return (
-    <header className="fixed w-full top-0 z-50">
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+    <header className="fixed w-full top-0 z-50 border-b border-[#2c2c2c]/70 bg-[#070707]/70 backdrop-blur-sm">
+      <div className="max-w-5xl mx-auto px-6 py-3 flex justify-between items-center">
         <NavLink
           to="/"
-          className="w-10 h-10 rounded-lg bg-sky-100 items-center justify-center flex font-bold border-2  border-sky-200 shadow-[0_0_2px_#fff,inset_0_0_2px_#fff,0_0_5px_#08f,0_0_10px_#08f,0_0_20px_#08f]"
+          className="mono flex items-center gap-3 text-sm text-[#ececec] group"
         >
-          <p className="blue-gradient_text text-xl">S</p>
+          <span className="w-8 h-8 border border-[#6f6f6f] flex items-center justify-center font-semibold text-white transition-all duration-150 group-hover:bg-white group-hover:text-black group-hover:shadow-[3px_3px_0_0_rgba(255,255,255,0.3)]">
+            SJ
+          </span>
+          <span className="hidden sm:inline text-[0.7rem] tracking-[0.2em] uppercase text-[#8a8a8a]">
+            satya.jhaveri
+          </span>
         </NavLink>
 
-        <nav className="flex space-x-6">
-          <NavLink
-            to="/about"
-            className={({ isActive }) =>
-              `relative text-gray-400 hover:text-white transition-colors duration-300 before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-[2px] before:bg-cyan-500 before:transition-all before:duration-300 hover:before:w-full ${
-                isActive ? "text-white before:w-full" : ""
-              }`
-            }
-          >
-            About
+        <nav className="flex items-center space-x-7">
+          <NavLink to="/about" className={linkClass}>
+            <span className="text-[#6f6f6f] mr-1">./</span>about
           </NavLink>
-          <NavLink
-            to="/projects"
-            className={({ isActive }) =>
-              `relative text-gray-400 hover:text-white transition-colors duration-300 before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-[2px] before:bg-cyan-500 before:transition-all before:duration-300 hover:before:w-full ${
-                isActive ? "text-white before:w-full" : ""
-              }`
-            }
-          >
-            Projects
+          <NavLink to="/projects" className={linkClass}>
+            <span className="text-[#6f6f6f] mr-1">./</span>projects
+          </NavLink>
+          <NavLink to="https://rates37.github.io/blog" className={linkClass}>
+            <span className="text-[#6f6f6f] mr-1">./</span>blog
           </NavLink>
         </nav>
       </div>

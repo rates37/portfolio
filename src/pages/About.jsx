@@ -150,7 +150,7 @@ const About = () => {
 
           <hr className="border-slate-200" />
 
-          <CallToAction />
+          {/* <CallToAction /> */}
         </section>
       </div>
     </>
