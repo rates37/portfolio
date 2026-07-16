@@ -74,24 +74,20 @@ const HomePage = () => {
           <div className="flex items-center gap-2 mb-3">
             <div className="status-square" />
             <span className="mono text-[0.65rem] tracking-[0.18em] uppercase text-[#ececec]">
-              online — currently working as
+              currently working as
             </span>
           </div>
           <ul className="space-y-2 text-[#ececec]">
             <li className="flex items-baseline gap-3">
               <span className="mono text-[0.7rem] text-[#6f6f6f]">&gt;</span>
-              <span>Software Engineer</span>
-            </li>
-            <li className="flex items-baseline gap-3">
-              <span className="mono text-[0.7rem] text-[#6f6f6f]">&gt;</span>
-              <span>Deputy Unit Coordinator</span>
+              <span>Software Engineer @ Canonical</span>
             </li>
           </ul>
         </Panel>
 
         {/* Navigation */}
         <Panel index={3} label="goto" className="sm:col-span-2">
-          <div className="flex flex-col gap-2.5 justify-center h-full">
+          <div className="flex flex-col justify-center h-full">
             <Link to="/about" className="trace-btn">
               <span>About me</span>
               <span aria-hidden>-&gt;</span>
@@ -100,6 +96,7 @@ const HomePage = () => {
               <span>Projects</span>
               <span aria-hidden>-&gt;</span>
             </Link>
+            <br/>
           </div>
         </Panel>
 
