@@ -297,6 +297,11 @@ export const socials = {
 
 export const recentWork = [
   {
+    title: "Advent of FPGA 2025",
+    desc: "Advent of Code in synthesisable Verilog and Hardcaml",
+    link: "/projects",
+  },
+  {
     title: "Build Your Own Embedding",
     desc: "Python library for generating synthetic neural responses",
     link: "/projects",
@@ -309,6 +314,16 @@ export const recentWork = [
   {
     title: "Mips Test Library",
     desc: "Python library for automating tests of MIPS assembly programs",
+    link: "/projects",
+  },
+  {
+    title: "Viziou",
+    desc: "Visualising Intersection over Union for 2D/3D convex polytopes",
+    link: "/projects",
+  },
+  {
+    title: "uniplan",
+    desc: "Course planning tool for Monash University students",
     link: "/projects",
   },
 ];

@@ -19,8 +19,9 @@ export default {
         }
       },
       fontFamily: {
-        worksans: ["Work Sans", "sans-serif"],
-        poppins: ['Poppins', "sans-serif"]
+        worksans: ["Space Grotesk", "sans-serif"],
+        poppins: ["Space Grotesk", "sans-serif"],
+        mono: ["IBM Plex Mono", "monospace"]
       },
       boxShadow: {
         card: '0px 1px 2px 0px rgba(0, 0, 0, 0.05)'

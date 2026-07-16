@@ -1,25 +1,31 @@
-/* Source: https://github.com/adrianhajdin */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --blue-rgb: 237 245 255;
-  --green-rgb: 125 161 35;
+  --ink: #070707;
+  --panel: #0d0d0d;
+  --hairline: #2c2c2c;
+  --wire: #ffffff;
+  --wire-dim: #6f6f6f;
+  --text-hi: #ececec;
+  --text-lo: #8a8a8a;
+}
+
+html {
+  background-color: var(--ink);
 }
 
 body {
-  font-family: "Work Sans", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--text-hi);
 }
 
-body:has(.card[data-color="blue"]:hover) {
-  background-color: rgb(var(--blue-rgb) / 25%);
-}
-
-body:has(.card[data-color="green"]:hover) {
-  background-color: rgb(var(--green-rgb) / 25%);
+::selection {
+  background: var(--wire);
+  color: var(--ink);
 }
 
 @layer utilities {
@@ -40,7 +46,7 @@ body:has(.card[data-color="green"]:hover) {
   }
 
   .blue-gradient_text {
-    @apply bg-gradient-to-r from-[#00c6ff] to-[#0072ff] bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-white to-[#9a9a9a] bg-clip-text text-transparent;
   }
 
   .input {
@@ -225,118 +231,143 @@ body:has(.card[data-color="green"]:hover) {
   }
 }
 
-.home-container {
+/* ------------------------------------------------------------------ */
+/* Panels: flat, hard-edged, hairline borders, offset shadow on hover  */
+/* ------------------------------------------------------------------ */
+
+.panel {
   position: relative;
-  z-index: 10;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  background-color: #1a1a1a;
-  color: #e0e0e0;
+  background: rgba(10, 10, 10, 0.85);
+  border: 1px solid var(--hairline);
+  box-shadow: 5px 5px 0 0 rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: transform 160ms ease, box-shadow 160ms ease,
+    border-color 160ms ease;
 }
 
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  max-width: 48rem;
-  width: 100%;
+.panel:hover {
+  transform: translate(-2px, -2px);
+  border-color: var(--wire-dim);
+  box-shadow: 7px 7px 0 0 rgba(255, 255, 255, 0.28);
 }
 
-/* Intro Card */
-.intro-card {
-  grid-column: span 2;
-  background: rgba(31, 41, 55, 0.5);
-  padding: 1.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(55, 65, 81, 0.3);
-  transition: transform 0.3s ease-in-out;
-}
-
-.intro-card:hover {
-  transform: scale(1.02);
-}
-
-.intro-title {
-  font-size: 1.875rem;
-  font-weight: bold;
-  background: linear-gradient(to right, #60a5fa, #a78bfa);
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-.intro-text {
-  margin-top: 0.75rem;
-  color: #d1d5db;
-  line-height: 1.5;
-}
-
-/* Tech Stack */
-.tech-card {
-  background: rgba(31, 41, 55, 0.5);
-  padding: 1.5rem;
-  border-radius: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(55, 65, 81, 0.3);
-  transition: transform 0.3s ease-in-out;
-}
-
-.tech-card:hover {
-  transform: scale(1.02);
-}
-
-.tech-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #67e8f9;
-  margin-bottom: 1rem;
-}
-
-.tech-icons {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  text-align: center;
-  font-size: 1.875rem;
-  color: #9ca3af;
-}
-
-.tech-icon-wrapper {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: color 0.3s ease-in-out;
-}
-
-.tech-icon-wrapper:hover .tech-icon {
-  color: #67e8f9;
-  transform: scale(1.2);
-}
-
-.tech-icon {
-  transition: transform 0.3s ease-in-out;
-}
-
-.tooltip {
+/* corner tick brackets, like a schematic drawing frame */
+.panel::before,
+.panel::after {
+  content: "";
   position: absolute;
-  bottom: -1.5rem;
-  background: rgba(0, 0, 0, 0.75);
-  color: #fff;
-  font-size: 0.75rem;
-  padding: 0.3rem 0.6rem;
-  border-radius: 0.25rem;
-  opacity: 0;
-  transition: opacity 0.2s ease-in-out;
+  width: 9px;
+  height: 9px;
   pointer-events: none;
+  transition: border-color 160ms ease;
 }
 
-.tech-icon-wrapper:hover .tooltip {
-  opacity: 1;
+.panel::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1px solid var(--wire-dim);
+  border-left: 1px solid var(--wire-dim);
+}
+
+.panel::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 1px solid var(--wire-dim);
+  border-right: 1px solid var(--wire-dim);
+}
+
+.panel:hover::before,
+.panel:hover::after {
+  border-color: var(--wire);
+}
+
+.panel-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-lo);
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+}
+
+.panel-label::after {
+  content: "";
+  flex: 1;
+  border-top: 1px dashed var(--hairline);
+  transform: translateY(-2px);
+}
+
+.panel-label .idx {
+  color: var(--wire-dim);
+}
+
+.mono {
+  font-family: "IBM Plex Mono", monospace;
+}
+
+/* square link-button, inverts on hover */
+.trace-btn {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--hairline);
+  color: var(--text-hi);
+  transition: all 140ms ease;
+}
+
+.trace-btn:hover {
+  background: var(--wire);
+  border-color: var(--wire);
+  color: var(--ink);
+}
+
+/* blinking square status indicator */
+.status-square {
+  width: 8px;
+  height: 8px;
+  background: var(--wire);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+  animation: blink-square 2.4s steps(1) infinite;
+}
+
+@keyframes blink-square {
+  0%,
+  70% {
+    opacity: 1;
+  }
+  70.01%,
+  85% {
+    opacity: 0.25;
+  }
+  85.01%,
+  100% {
+    opacity: 1;
+  }
+}
+
+/* faint horizontal scanlines over the whole page */
+.scanlines {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 0, 0, 0.09) 3px,
+    rgba(0, 0, 0, 0.09) 4px
+  );
+  mix-blend-mode: multiply;
 }
 
 .bash-green:hover {
@@ -374,11 +405,11 @@ body:has(.card[data-color="green"]:hover) {
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888; 
-  -webkit-border-radius: 8px;
+  background: var(--hairline);
+  border: 2px solid var(--ink);
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: var(--wire-dim);
 }
