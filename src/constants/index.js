@@ -8,6 +8,7 @@ import {
   clexp,
   canonical,
   advent_of_fpga,
+  cucc,
 } from "../assets/images";
 import {
   github,
@@ -183,6 +184,19 @@ export const socialLinks = [
 ];
 
 export const projects = [
+  {
+    iconUrl: cucc,
+    theme: "btn-back-cucc",
+    name: "cucc",
+    description:
+      "Compiler/transpiler toolchain to convert CUDA (.cu) code into portable, multithreaded C++, allowing CUDA code to run on any platform.",
+    links: [
+      {
+        linkText: "GitHub",
+        link: "https://github.com/rates37/cucc",
+      },
+    ],
+  },
   {
     iconUrl: advent_of_fpga,
     theme: "btn-back-deep-blue",

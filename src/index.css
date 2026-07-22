@@ -156,6 +156,10 @@ body {
   background: linear-gradient(135deg, #1347A1 20%, #EF7A08 50%);
 }
 
+.block-container .btn-back-cucc {
+  background: linear-gradient(135deg, #8fe00080 -10%, #8fe000 120%);
+}
+
 .block-container .btn-front {
   position: absolute;
   inset: 0;
